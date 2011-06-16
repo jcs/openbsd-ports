@@ -1,0 +1,15 @@
+@comment $OpenBSD: PLIST,v 1.8 2009/02/09 18:36:49 martynas Exp $
+@bin bin/ratpoison
+bin/rpws
+@info info/ratpoison.info
+@man man/man1/ratpoison.1
+share/ratpoison/
+share/ratpoison/allwindows.sh
+share/ratpoison/clickframe.pl
+share/ratpoison/genrpbindings
+share/ratpoison/ratpoison.el
+share/ratpoison/rpshowall.sh
+share/ratpoison/rpws
+share/ratpoison/sloppy.c
+share/ratpoison/split.sh
+share/ratpoison/unrat.c
