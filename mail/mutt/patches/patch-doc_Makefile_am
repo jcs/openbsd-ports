@@ -1,0 +1,14 @@
+$OpenBSD: patch-doc_Makefile_am,v 1.2 2010/10/22 17:00:20 naddy Exp $
+--- doc/Makefile.am.orig	Tue Aug 25 21:08:52 2009
++++ doc/Makefile.am	Fri Oct 22 18:45:59 2010
+@@ -161,8 +161,8 @@ update-doc: stamp-doc-xml stamp-doc-chunked stamp-doc-
+ 
+ muttrc.man: makedoc$(EXEEXT) $(top_srcdir)/init.h muttrc.man.head muttrc.man.tail
+ 	$(MAKEDOC_CPP) $(top_srcdir)/init.h | ./makedoc$(EXEEXT) -m | 	    \
+-		cat $(srcdir)/muttrc.man.head - $(srcdir)/muttrc.man.tail\
+-		> muttrc.man
++		cat $(srcdir)/muttrc.man.head - $(srcdir)/muttrc.man.tail | \
++		tbl > muttrc.man
+ 
+ EDIT = sed -e 's,@sysconfdir\@,$(sysconfdir),g' \
+ 	-e 's,@bindir\@,$(bindir),g' \
