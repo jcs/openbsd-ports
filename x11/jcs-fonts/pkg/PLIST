@@ -1,0 +1,51 @@
+@comment $OpenBSD$
+lib/X11/fonts/
+lib/X11/fonts/jcs-webfonts/
+lib/X11/fonts/jcs-webfonts/ProggyTinyBold.pcf.gz
+lib/X11/fonts/jcs-webfonts/ProggyTinySZ.pcf.gz
+lib/X11/fonts/jcs-webfonts/fonts.dir
+lib/X11/fonts/jcs-webfonts/ttf/
+lib/X11/fonts/jcs-webfonts/ttf/Helvetica Bold.ttf
+lib/X11/fonts/jcs-webfonts/ttf/Helvetica Neue Bold Italic.ttf
+lib/X11/fonts/jcs-webfonts/ttf/Helvetica Neue Bold.ttf
+lib/X11/fonts/jcs-webfonts/ttf/Helvetica Neue Condensed Black.ttf
+lib/X11/fonts/jcs-webfonts/ttf/Helvetica Neue Condensed Bold.ttf
+lib/X11/fonts/jcs-webfonts/ttf/Helvetica Neue Italic.ttf
+lib/X11/fonts/jcs-webfonts/ttf/Helvetica Neue Light Italic.ttf
+lib/X11/fonts/jcs-webfonts/ttf/Helvetica Neue Light.ttf
+lib/X11/fonts/jcs-webfonts/ttf/Helvetica Neue UltraLight Italic.ttf
+lib/X11/fonts/jcs-webfonts/ttf/Helvetica Neue UltraLight.ttf
+lib/X11/fonts/jcs-webfonts/ttf/Helvetica Neue.ttf
+lib/X11/fonts/jcs-webfonts/ttf/Helvetica.ttf
+lib/X11/fonts/jcs-webfonts/ttf/Lucida Grande.ttf
+lib/X11/fonts/jcs-webfonts/ttf/andalemo.ttf
+lib/X11/fonts/jcs-webfonts/ttf/arial.ttf
+lib/X11/fonts/jcs-webfonts/ttf/arialbd.ttf
+lib/X11/fonts/jcs-webfonts/ttf/arialbi.ttf
+lib/X11/fonts/jcs-webfonts/ttf/ariali.ttf
+lib/X11/fonts/jcs-webfonts/ttf/ariblk.ttf
+lib/X11/fonts/jcs-webfonts/ttf/comic.ttf
+lib/X11/fonts/jcs-webfonts/ttf/comicbd.ttf
+lib/X11/fonts/jcs-webfonts/ttf/cour.ttf
+lib/X11/fonts/jcs-webfonts/ttf/courbd.ttf
+lib/X11/fonts/jcs-webfonts/ttf/courbi.ttf
+lib/X11/fonts/jcs-webfonts/ttf/couri.ttf
+lib/X11/fonts/jcs-webfonts/ttf/georgia.ttf
+lib/X11/fonts/jcs-webfonts/ttf/georgiab.ttf
+lib/X11/fonts/jcs-webfonts/ttf/georgiai.ttf
+lib/X11/fonts/jcs-webfonts/ttf/georgiaz.ttf
+lib/X11/fonts/jcs-webfonts/ttf/impact.ttf
+lib/X11/fonts/jcs-webfonts/ttf/tahoma.ttf
+lib/X11/fonts/jcs-webfonts/ttf/times.ttf
+lib/X11/fonts/jcs-webfonts/ttf/timesbd.ttf
+lib/X11/fonts/jcs-webfonts/ttf/timesbi.ttf
+lib/X11/fonts/jcs-webfonts/ttf/timesi.ttf
+lib/X11/fonts/jcs-webfonts/ttf/trebuc.ttf
+lib/X11/fonts/jcs-webfonts/ttf/trebucbd.ttf
+lib/X11/fonts/jcs-webfonts/ttf/trebucbi.ttf
+lib/X11/fonts/jcs-webfonts/ttf/trebucit.ttf
+lib/X11/fonts/jcs-webfonts/ttf/verdana.ttf
+lib/X11/fonts/jcs-webfonts/ttf/verdanab.ttf
+lib/X11/fonts/jcs-webfonts/ttf/verdanai.ttf
+lib/X11/fonts/jcs-webfonts/ttf/verdanaz.ttf
+lib/X11/fonts/jcs-webfonts/ttf/webdings.ttf

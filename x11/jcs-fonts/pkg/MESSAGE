@@ -1,0 +1,8 @@
+add this to ~/.xsession or whatever:
+
+	xset +fp /usr/X11R6/lib/X11/fonts/jcs-webfonts
+	xset fp rehash
+
+make sure your ~/.fonts.conf has:
+
+    <dir>/usr/X11R6/lib/X11/fonts/jcs-webfonts/ttf/</dir>
