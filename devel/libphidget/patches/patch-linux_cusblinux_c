@@ -1,0 +1,44 @@
+$OpenBSD$
+--- linux/cusblinux.c.orig	Thu Feb 16 14:48:27 2012
++++ linux/cusblinux.c	Tue Apr 17 22:54:30 2012
+@@ -407,6 +407,8 @@ int CUSBGetDeviceCapabilities(CPhidgetHandle phid, str
+    keeping track of attach and detach events. (On Mac this is handled with 
+    notifications, so this is not needed.) - PM
+ */
++int usb_inited = 0;
++
+ int CUSBBuildList(CPhidgetList **curList) {
+ 	int MemberIndex, i, ret, found;
+ 	unsigned long Length;
+@@ -421,16 +423,22 @@ int CUSBBuildList(CPhidgetList **curList) {
+ 
+ 	TESTPTR(curList)
+ 	
+-	usb_init();
+-	if((ret = usb_find_busses()) < 0)
+-	{
+-		LOG(PHIDGET_LOG_ERROR, "usb_find_busses failed with error code: %d \"%s\"", ret, strerror(-ret));
++	/* XXX: this was moved to run only once because subsequent runs
++	 * sometimes clear out usb_busses.  no idea why. */
++	if (!usb_inited) {
++		usb_init();
++		usb_inited = 1;
++
++		if((ret = usb_find_busses()) < 0)
++		{
++			LOG(PHIDGET_LOG_ERROR, "usb_find_busses failed with error code: %d \"%s\"", ret, strerror(-ret));
++		}
++		if((ret = usb_find_devices()) < 0)
++		{
++			LOG(PHIDGET_LOG_ERROR, "usb_find_devices failed with error code: %d \"%s\"", ret, strerror(-ret));
++		}
+ 	}
+-	if((ret = usb_find_devices()) < 0)
+-	{
+-		LOG(PHIDGET_LOG_ERROR, "usb_find_devices failed with error code: %d \"%s\"", ret, strerror(-ret));
+-	}
+-	
++
+ 	//search through all USB devices
+ 	for (bus = usb_busses; bus; bus = bus->next) {
+ 		for (dev = bus->devices; dev; dev = dev->next) {

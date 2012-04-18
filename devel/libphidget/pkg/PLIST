@@ -1,0 +1,5 @@
+@comment $OpenBSD: PLIST,v 1.7 2011/12/09 12:25:44 jasper Exp $
+%%SHARED%%
+include/phidget21.h
+lib/libphidget21.a
+lib/libphidget21.la
