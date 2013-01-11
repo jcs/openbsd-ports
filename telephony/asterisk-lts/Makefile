@@ -4,7 +4,6 @@ SHARED_ONLY=		Yes
 COMMENT=		open source multi-protocol PBX (long-term support version)
 
 VER=			1.8.19.1
-REVISION=		0
 DISTNAME=		asterisk-${VER:S/beta/-beta/:S/rc/-rc/}
 PKGNAME=		asterisk-lts-${VER}
 
