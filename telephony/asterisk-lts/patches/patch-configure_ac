@@ -1,0 +1,30 @@
+$OpenBSD: patch-configure_ac,v 1.25 2012/06/07 10:39:25 sthen Exp $
+--- configure.ac.orig	Thu Oct 18 14:42:53 2012
++++ configure.ac	Fri Jan 11 15:40:56 2013
+@@ -55,7 +55,7 @@ AC_SUBST([astvarrundir],      ['${localstatedir}/run/a
+ 
+ case "${host_os}" in
+      *bsd*)
+-     if test ${prefix} = 'NONE'; then
++     if test ${prefix} != 'NONE'; then
+         astvarlibdir='${prefix}/share/asterisk'
+         astdbdir='${localstatedir}/db/asterisk'
+      fi
+@@ -1606,7 +1606,7 @@ if test "${USE_IMAP_TK}" != "no"; then
+ 			)
+ 		else #looking in imap directory didn't work, try c-client
+ 			imap_ldflags=""
+-			imap_libs="-lc-client"
++			imap_libs="-lcrypto -lssl -lgssapi -lkrb5 -lc-client"
+ 			imap_include="-DUSE_SYSTEM_CCLIENT"
+ 			CPPFLAGS="${saved_cppflags}"
+ 			LIBS="${saved_libs}"
+@@ -1792,7 +1792,7 @@ AST_EXT_TOOL_CHECK([NETSNMP], [net-snmp-config], , [--
+ 
+ AST_EXT_LIB_CHECK([NEWT], [newt], [newtBell], [newt.h])
+ 
+-AST_EXT_LIB_CHECK([UNIXODBC], [odbc], [SQLConnect], [sql.h], [])
++AST_EXT_LIB_CHECK([UNIXODBC], [iodbc], [SQLConnect], [sql.h], [-pthread])
+ 
+ AST_EXT_LIB_CHECK([OGG], [ogg], [ogg_sync_init], [])
+ 
