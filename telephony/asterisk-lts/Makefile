@@ -6,6 +6,7 @@ COMMENT=		open source multi-protocol PBX (long-term support version)
 VER=			1.8.19.1
 DISTNAME=		asterisk-${VER:S/beta/-beta/:S/rc/-rc/}
 PKGNAME=		asterisk-lts-${VER}
+REVISION=		1
 
 CATEGORIES=		telephony
 
@@ -37,7 +38,8 @@ LIB_DEPENDS=		audio/gsm \
 			textproc/iksemel \
 			textproc/libxml \
 			${MODGETTEXT_LIB_DEPENDS}
-RUN_DEPENDS=		${MODGETTEXT_RUN_DEPENDS}
+RUN_DEPENDS=		${MODGETTEXT_RUN_DEPENDS} \
+			telephony/asterisk-native-sounds
 BUILD_DEPENDS=		security/libsrtp>=1.4.4 # statically linked
 
 MASTER_SITES=		http://downloads.asterisk.org/pub/telephony/asterisk/releases/ \
