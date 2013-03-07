@@ -1,7 +1,7 @@
 $OpenBSD$
---- linux/cusblinux.c.orig	Thu Feb 16 14:48:27 2012
-+++ linux/cusblinux.c	Tue Apr 17 22:54:30 2012
-@@ -407,6 +407,8 @@ int CUSBGetDeviceCapabilities(CPhidgetHandle phid, str
+--- linux/cusblinux.c.orig	Tue Dec 18 14:00:53 2012
++++ linux/cusblinux.c	Thu Mar  7 12:14:37 2013
+@@ -429,6 +429,8 @@ int CUSBGetDeviceCapabilities(CPhidgetHandle phid, str
     keeping track of attach and detach events. (On Mac this is handled with 
     notifications, so this is not needed.) - PM
  */
@@ -10,7 +10,7 @@ $OpenBSD$
  int CUSBBuildList(CPhidgetList **curList) {
  	int MemberIndex, i, ret, found;
  	unsigned long Length;
-@@ -421,16 +423,22 @@ int CUSBBuildList(CPhidgetList **curList) {
+@@ -443,16 +445,22 @@ int CUSBBuildList(CPhidgetList **curList) {
  
  	TESTPTR(curList)
  	

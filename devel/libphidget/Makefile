@@ -2,7 +2,7 @@
 
 COMMENT=		library to interface to Phidget USB devices
 
-V=			2.1.8.20120216
+V=			2.1.8.20121218
 SHARED_LIBS=		phidget21 0.0
 DISTNAME=		libphidget-${V}
 DISTFILES=		libphidget_${V}${EXTRACT_SUFX}
@@ -20,10 +20,10 @@ PERMIT_PACKAGE_FTP=	Yes
 PERMIT_DISTFILES_CDROM=	Yes
 PERMIT_DISTFILES_FTP=	Yes
 
-WANTLIB=		c m usb pthread
-USE_GROFF=		no
+WANTLIB=		c m pthread usb-1.0
+MODULES=		devel/gettext
 
-LIB_DEPENDS=		devel/libusb-compat
+LIB_DEPENDS=		devel/libusb1
 
 CONFIGURE_STYLE=	gnu
 CONFIGURE_ARGS+=	CPPFLAGS="-I${LOCALBASE}/include" \

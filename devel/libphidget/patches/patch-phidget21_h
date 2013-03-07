@@ -1,0 +1,10 @@
+$OpenBSD$
+--- phidget21.h.orig	Thu Mar  7 12:14:44 2013
++++ phidget21.h	Thu Mar  7 12:14:48 2013
+@@ -874,4 +874,4 @@ typedef struct _CPhidgetWeightSensor *CPhidgetWeightSe
+ #ifdef __cplusplus
+ }
+ #endif
+-#endif
+\ No newline at end of file
++#endif
