@@ -69,33 +69,48 @@ MAKE_FLAGS+=		ASTCFLAGS="${CFLAGS}" \
 			OPTIMIZE=
 
 CONFIGURE_ARGS+=	--with-asound=no \
+			--with-SDL_image=no \
 			--with-avcodec=no \
+			--with-bluetooth=no \
 			--with-cap=no \
 			--with-dahdi=no \
+			--with-gmime=no \
 			--with-gtk2=no \
+			--with-hoard=no \
+			--with-ical=no \
 			--with-isdnnet=no \
+			--with-imap=no \
+			--with-inotify=no \
+			--with-iodbc=no \
+			--with-isdnnet=no \
+			--with-jack=no \
+			--with-ldap=no \
+			--with-lua=no \
 			--with-misdn=no \
 			--with-nbs=no \
+			--with-neon29=no \
+			--with-neon=no \
+			--with-netsnmp=no \
 			--with-newt=no \
+			--with-openais=no \
+			--with-openr2=no \
 			--with-osptk=no \
 			--with-oss=no \
+			--with-portaudio=no \
+			--with-postgres=no \
 			--with-pri=no \
-			--with-SDL_image=no \
+			--with-pwlib=no \
+			--with-radius=no \
+			--with-resample=no \
 			--with-sdl=no \
 			--with-sqlite=no \
 			--with-ss7=no \
 			--with-suppserv=no \
+			--with-tds=no \
 			--with-tinfo=no \
 			--with-tonezone=no \
+			--with-unixodbc=no \
 			--with-vpb=no
-
-CONFIGURE_ARGS+=	--with-jack=no \
-			--with-lua=no \
-			--with-portaudio=no \
-			--with-pwlib=no \
-			--with-radius=no \
-			--with-resample=no \
-			--with-tds=no
 
 # Some build options (including a useful malloc debug) are available
 # via menuselect. They may be enabled by running 'make configure', cd
@@ -126,9 +141,6 @@ post-install:
 	@${SUBST_CMD} -c ${FILESDIR}/$i.sample \
 	    ${EXAMPLEDIR}/openbsd/$i.sample
 .endfor
-	${INSTALL_DATA} ${WRKSRC}/contrib/scripts/asterisk.ldif \
-		${WRKSRC}/contrib/scripts/asterisk.ldap-schema \
-		${PREFIX}/share/examples/asterisk/
 	@mv ${WRKINST}/${SYSCONFDIR}/asterisk ${EXAMPLEDIR}/default
 	@chown -R ${SHAREOWN}:${SHAREGRP} ${EXAMPLEDIR}
 	@rm -rf ${WRKINST}/{etc,var/{log,run,spool}}/asterisk
