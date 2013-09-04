@@ -345,6 +345,7 @@ lib/asterisk/modules/res_smdi.so
 lib/asterisk/modules/res_speech.so
 lib/asterisk/modules/res_srtp.so
 lib/asterisk/modules/res_stun_monitor.so
+lib/asterisk/modules/res_timing_kqueue.so
 lib/asterisk/modules/res_timing_pthread.so
 @man man/man8/asterisk.8
 @man man/man8/astgenkey.8

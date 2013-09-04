@@ -1,16 +1,17 @@
 $OpenBSD: patch-pbx_pbx_spool_c,v 1.1 2012/03/17 23:08:20 sthen Exp $
---- pbx/pbx_spool.c.orig	Mon Oct  8 15:45:25 2012
-+++ pbx/pbx_spool.c	Fri Jan 11 15:40:56 2013
-@@ -734,6 +734,12 @@ static void *scan_thread(void *unused)
- 		queue_created_files();
- #else
- 			struct timespec ts2 = { next - now, 0 };
-+			/*
-+			 * OpenBSD: interval timer must be <=100M seconds;
-+			 * see itimerfix() in /sys/kern/kern_time.c
-+			 */
-+			if (ts2.tv_sec > 100000000)
-+				ts2.tv_sec = 100000000;
- 			if (kevent(inotify_fd, NULL, 0, &kev, 1, &ts2) <= 0) {
- 				/* Interrupt or timeout, restart calculations */
- 				continue;
+--- pbx/pbx_spool.c.orig	Thu Mar 14 20:21:55 2013
++++ pbx/pbx_spool.c	Wed Sep  4 17:37:53 2013
+@@ -740,6 +740,13 @@
+ 				num_events = kevent(inotify_fd, &kev, 1, &event, 1, NULL);
+ 			} else {
+ 				struct timespec ts2 = { .tv_sec = (unsigned long int)(next - now), .tv_nsec = 0 };
++				/*
++				 * OpenBSD: interval timer must be <=100M seconds;
++				 * see itimerfix() in /sys/kern/kern_time.c
++				 */
++				if (ts2.tv_sec > 100000000)
++				    ts2.tv_sec = 100000000;
++
+ 				num_events = kevent(inotify_fd, &kev, 1, &event, 1, &ts2);
+ 			}
+ 			if ((num_events < 0) || (event.flags == EV_ERROR)) {
