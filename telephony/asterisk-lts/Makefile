@@ -17,8 +17,6 @@ HOMEPAGE=		http://www.asterisk.org/
 # notes in codecs/ilbc/LICENSE_ADDENDUM.
 PERMIT_PACKAGE_CDROM=	patent licensing clauses
 PERMIT_PACKAGE_FTP=	Yes
-PERMIT_DISTFILES_CDROM= patent licensing clauses
-PERMIT_DISTFILES_FTP=	Yes
 
 WANTLIB+=		c crypto curl execinfo gsm idn iksemel
 WANTLIB+=		m ogg pthread spandsp ssl stdc++ termcap
