@@ -4,8 +4,8 @@ COMMENT=	tty-based e-mail client, development version
 
 DISTNAME=	master
 EXTRACT_SUFX=
-PKGNAME=	mutt-jcs-1.5.21
-WRKDIST=	${WRKDIR}/jcs-mutt-*
+PKGNAME=	mutt-jcs-1.5.21v0
+WRKDIST=	${WRKDIR}/jcs-mutt-90c3eff
 
 MAINTAINER=	jcs@openbsd.org
 
