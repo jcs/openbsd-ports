@@ -1,7 +1,7 @@
 $OpenBSD: patch-pbx_pbx_spool_c,v 1.1 2012/03/17 23:08:20 sthen Exp $
 --- pbx/pbx_spool.c.orig	Thu Mar 14 20:21:55 2013
-+++ pbx/pbx_spool.c	Wed Sep  4 17:37:53 2013
-@@ -740,6 +740,13 @@
++++ pbx/pbx_spool.c	Thu Sep 11 10:42:21 2014
+@@ -740,6 +740,13 @@ static void *scan_thread(void *unused)
  				num_events = kevent(inotify_fd, &kev, 1, &event, 1, NULL);
  			} else {
  				struct timespec ts2 = { .tv_sec = (unsigned long int)(next - now), .tv_nsec = 0 };

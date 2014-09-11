@@ -1,6 +1,6 @@
 $OpenBSD: patch-configure_ac,v 1.25 2012/06/07 10:39:25 sthen Exp $
---- configure.ac.orig	Thu Oct 18 14:42:53 2012
-+++ configure.ac	Fri Jan 11 15:40:56 2013
+--- configure.ac.orig	Mon May 12 18:08:09 2014
++++ configure.ac	Thu Sep 11 10:42:21 2014
 @@ -55,7 +55,7 @@ AC_SUBST([astvarrundir],      ['${localstatedir}/run/a
  
  case "${host_os}" in
@@ -10,7 +10,7 @@ $OpenBSD: patch-configure_ac,v 1.25 2012/06/07 10:39:25 sthen Exp $
          astvarlibdir='${prefix}/share/asterisk'
          astdbdir='${localstatedir}/db/asterisk'
       fi
-@@ -1606,7 +1606,7 @@ if test "${USE_IMAP_TK}" != "no"; then
+@@ -1631,7 +1631,7 @@ if test "${USE_IMAP_TK}" != "no"; then
  			)
  		else #looking in imap directory didn't work, try c-client
  			imap_ldflags=""
@@ -19,7 +19,7 @@ $OpenBSD: patch-configure_ac,v 1.25 2012/06/07 10:39:25 sthen Exp $
  			imap_include="-DUSE_SYSTEM_CCLIENT"
  			CPPFLAGS="${saved_cppflags}"
  			LIBS="${saved_libs}"
-@@ -1792,7 +1792,7 @@ AST_EXT_TOOL_CHECK([NETSNMP], [net-snmp-config], , [--
+@@ -1817,7 +1817,7 @@ AST_EXT_TOOL_CHECK([NETSNMP], [net-snmp-config], , [--
  
  AST_EXT_LIB_CHECK([NEWT], [newt], [newtBell], [newt.h])
  

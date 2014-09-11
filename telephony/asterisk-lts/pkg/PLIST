@@ -253,6 +253,7 @@ lib/asterisk/modules/codec_g726.so
 lib/asterisk/modules/codec_gsm.so
 lib/asterisk/modules/codec_ilbc.so
 lib/asterisk/modules/codec_lpc10.so
+lib/asterisk/modules/codec_speex.so
 lib/asterisk/modules/codec_ulaw.so
 lib/asterisk/modules/format_g719.so
 lib/asterisk/modules/format_g723.so
@@ -304,6 +305,7 @@ lib/asterisk/modules/func_rand.so
 lib/asterisk/modules/func_realtime.so
 lib/asterisk/modules/func_sha1.so
 lib/asterisk/modules/func_shell.so
+lib/asterisk/modules/func_speex.so
 lib/asterisk/modules/func_sprintf.so
 lib/asterisk/modules/func_srv.so
 lib/asterisk/modules/func_strings.so
@@ -377,6 +379,7 @@ share/asterisk/phoneprov/000000000000.cfg
 share/asterisk/phoneprov/polycom.xml
 share/asterisk/phoneprov/polycom_line.xml
 share/asterisk/phoneprov/snom-mac.xml
+share/asterisk/sounds/
 share/asterisk/static-http/
 share/asterisk/static-http/ajamdemo.html
 share/asterisk/static-http/astman.css
@@ -385,6 +388,7 @@ share/asterisk/static-http/core-en_US.xml
 share/asterisk/static-http/mantest.html
 share/asterisk/static-http/prototype.js
 share/doc/asterisk/
+share/doc/asterisk/Asterisk-1.8-Reference.pdf
 share/doc/asterisk/Asterisk-Admin-Guide.pdf
 share/doc/asterisk/BUGS
 share/doc/asterisk/CHANGES
