@@ -2,7 +2,7 @@
 
 COMMENT=		proper web fonts
 
-DISTNAME=		jcs-webfonts-1.0
+DISTNAME=		jcs-webfonts-1.2
 CATEGORIES=		x11
 
 MAINTAINER=		jcs@jcs.org
