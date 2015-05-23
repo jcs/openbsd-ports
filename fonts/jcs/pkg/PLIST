@@ -1,0 +1,54 @@
+@comment $OpenBSD$
+lib/X11/fonts/
+lib/X11/fonts/jcs/
+lib/X11/fonts/jcs/ProggyTinyBold.pcf.gz
+lib/X11/fonts/jcs/ProggyTinySZ.pcf.gz
+lib/X11/fonts/jcs/fonts.dir
+share/fonts/
+share/fonts/jcs/
+share/fonts/jcs/Helvetica Bold.ttf
+share/fonts/jcs/Helvetica Neue Bold Italic.ttf
+share/fonts/jcs/Helvetica Neue Bold.ttf
+share/fonts/jcs/Helvetica Neue Condensed Black.ttf
+share/fonts/jcs/Helvetica Neue Condensed Bold.ttf
+share/fonts/jcs/Helvetica Neue Italic.ttf
+share/fonts/jcs/Helvetica Neue Light Italic.ttf
+share/fonts/jcs/Helvetica Neue Light.ttf
+share/fonts/jcs/Helvetica Neue UltraLight Italic.ttf
+share/fonts/jcs/Helvetica Neue UltraLight.ttf
+share/fonts/jcs/Helvetica Neue.ttf
+share/fonts/jcs/Helvetica.ttf
+share/fonts/jcs/Lucida Grande Bold.ttf
+share/fonts/jcs/Lucida Grande.ttf
+share/fonts/jcs/Symbola.ttf
+share/fonts/jcs/andalemo.ttf
+share/fonts/jcs/arial.ttf
+share/fonts/jcs/arialbd.ttf
+share/fonts/jcs/arialbi.ttf
+share/fonts/jcs/ariali.ttf
+share/fonts/jcs/ariblk.ttf
+share/fonts/jcs/comic.ttf
+share/fonts/jcs/comicbd.ttf
+share/fonts/jcs/cour.ttf
+share/fonts/jcs/courbd.ttf
+share/fonts/jcs/courbi.ttf
+share/fonts/jcs/couri.ttf
+share/fonts/jcs/georgia.ttf
+share/fonts/jcs/georgiab.ttf
+share/fonts/jcs/georgiai.ttf
+share/fonts/jcs/georgiaz.ttf
+share/fonts/jcs/impact.ttf
+share/fonts/jcs/tahoma.ttf
+share/fonts/jcs/times.ttf
+share/fonts/jcs/timesbd.ttf
+share/fonts/jcs/timesbi.ttf
+share/fonts/jcs/timesi.ttf
+share/fonts/jcs/trebuc.ttf
+share/fonts/jcs/trebucbd.ttf
+share/fonts/jcs/trebucbi.ttf
+share/fonts/jcs/trebucit.ttf
+share/fonts/jcs/verdana.ttf
+share/fonts/jcs/verdanab.ttf
+share/fonts/jcs/verdanai.ttf
+share/fonts/jcs/verdanaz.ttf
+share/fonts/jcs/webdings.ttf

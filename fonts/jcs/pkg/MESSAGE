@@ -1,0 +1,4 @@
+add this to ~/.xsession or whatever:
+
+	xset +fp /usr/local/lib/X11/fonts/jcs
+	xset fp rehash

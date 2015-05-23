@@ -3,7 +3,8 @@
 COMMENT=		proper web fonts
 
 DISTNAME=		jcs-webfonts-1.2
-CATEGORIES=		x11
+REVISION=		1
+CATEGORIES=		fonts
 
 MAINTAINER=		jcs@jcs.org
 
@@ -17,10 +18,13 @@ NO_BUILD=		Yes
 NO_TEST=		Yes
 PKG_ARCH=		*
 
-INST_DIR=		${PREFIX}/lib/X11/fonts/jcs-webfonts
+TTF_INST_DIR=		${PREFIX}/share/fonts/jcs
+PCF_INST_DIR=		${PREFIX}/lib/X11/fonts/jcs
 
 do-install:
-	${INSTALL_DATA_DIR} ${INST_DIR}
-	cp -r ${WRKSRC}/* ${INST_DIR}/
+	${INSTALL_DATA_DIR} ${TTF_INST_DIR}
+	cp -r ${WRKSRC}/ttf/* ${TTF_INST_DIR}/
+	${INSTALL_DATA_DIR} ${PCF_INST_DIR}
+	cp -r ${WRKSRC}/*.pcf* ${WRKSRC}/fonts.dir ${PCF_INST_DIR}/
 
 .include <bsd.port.mk>
