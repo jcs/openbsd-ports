@@ -2,17 +2,16 @@
 
 COMMENT=	tty-based e-mail client, development version
 
-DISTNAME=	master
-EXTRACT_SUFX=
-PKGNAME=	mutt-jcs-1.5.21v0
-WRKDIST=	${WRKDIR}/jcs-mutt-90c3eff
+GH_ACCOUNT =	jcs
+GH_PROJECT =	mutt
+GH_COMMIT =	4b58aec575ee10091ea644cefa4ac0c6ed5ae50d
+DISTNAME =	${GH_PROJECT}-${GH_ACCOUNT}-1.5.21
+CATEGORIES =	mail
+
+REVISION=	1
 
 MAINTAINER=	jcs@openbsd.org
 
-MASTER_SITES=	https://github.com/jcs/mutt/tarball/
-DIST_SUBDIR=	mutt
-
-CATEGORIES=	mail
 HOMEPAGE=	http://www.mutt.org/
 
 # GPLv2+
@@ -21,12 +20,13 @@ PERMIT_PACKAGE_FTP=	Yes
 
 MODULES=	devel/gettext
 
-WANTLIB=	c crypto gssapi krb5 ssl qdbm>=14 z ncurses
+WANTLIB=	c crypto ssl qdbm>=14 z ncurses
 
 AUTOCONF_VERSION= 2.65
+AUTOMAKE_VERSION= 1.9
+CONFIGURE_STYLE= gnu autoconf
+USE_GROFF =	Yes
 
-CONFIGURE_STYLE= autoconf old
-AUTOCONF_VERSION?= 2.61
 CONFIGURE_ARGS= --enable-hcache \
 		--enable-smtp \
 		--without-gdbm \
@@ -38,7 +38,7 @@ CONFIGURE_ARGS= --enable-hcache \
 		--mandir=${PREFIX}/man \
 		--sysconfdir=${CONFDIR} \
 		--with-docdir="${PREFIX}/share/doc/mutt" \
-		--with-gss \
+		--without-gss \
 		--with-ssl \
 		--with-curses \
 		--without-idn
@@ -63,11 +63,6 @@ CONFDIR=	${SYSCONFDIR}/mutt
 SUBST_VARS=	CONFDIR
 MUTTRCDIR?=
 
-AUTOMAKE_VERSION= 1.9
-CONFIGURE_STYLE= gnu
-USE_GROFF =	Yes
-BUILD_DEPENDS+=	${MODGNU_AUTOCONF_DEPENDS} \
-		${MODGNU_AUTOMAKE_DEPENDS}
 post-patch:
 	cd ${WRKSRC}; \
 	    AUTOCONF_VERSION=${AUTOCONF_VERSION} \
