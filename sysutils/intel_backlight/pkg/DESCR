@@ -1,0 +1,5 @@
+intel_backlight adjusts the backlight value on Intel video chips/cards by
+directly reading and adjusting PCI registers.
+
+The machdep.allowaperture sysctl value must be at least 2 to access /dev/xf86,
+and must be 3 to use while X is running.
