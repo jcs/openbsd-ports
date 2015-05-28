@@ -1,3 +1,2 @@
 @comment $OpenBSD$
-@mode u+s
 @bin bin/intel_backlight

@@ -17,6 +17,6 @@ GH_COMMIT =	ef38bdf9c33c34b53eb335dc6828b21634cf35ce
 DISTNAME =	${GH_PROJECT:S/_fbsd//}-20150525
 
 do-install:
-	${INSTALL_PROGRAM} -m 4555 ${WRKBUILD}/intel_backlight ${PREFIX}/bin
+	${INSTALL_PROGRAM} ${WRKBUILD}/intel_backlight ${PREFIX}/bin
 
 .include <bsd.port.mk>
