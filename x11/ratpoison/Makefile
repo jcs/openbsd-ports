@@ -4,8 +4,8 @@ COMMENT=	minimal wm based on GNU screen
 
 GH_ACCOUNT =	jcs
 GH_PROJECT =	ratpoison
-GH_COMMIT =	2b2b591fcb811dd3c4e01003276cd396088774d1
-DISTNAME =	${GH_PROJECT}-${GH_ACCOUNT}-20110616
+GH_COMMIT =	7018e1d15cd4de7f2fbca3fa7d82f0389015d7a9
+DISTNAME =	${GH_PROJECT}-${GH_ACCOUNT}-20151029
 CATEGORIES =	x11
 
 MAINTAINER=	jcs@openbsd.org
@@ -16,8 +16,6 @@ PERMIT_PACKAGE_FTP=	Yes
 
 WANTLIB=		X11 Xau Xdmcp Xext Xft Xinerama Xrender Xtst c expat \
 			fontconfig freetype z pthread-stubs xcb
-
-USE_GROFF =		Yes
 
 CONFIGURE_STYLE=	gnu
 
