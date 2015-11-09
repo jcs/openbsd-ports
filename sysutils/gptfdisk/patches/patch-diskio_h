@@ -1,0 +1,12 @@
+$OpenBSD$
+--- diskio.h.orig	Mon Nov  9 11:06:53 2015
++++ diskio.h	Mon Nov  9 11:07:05 2015
+@@ -29,7 +29,7 @@
+ #include <sys/dkio.h>
+ #endif
+ 
+-#if defined (__FreeBSD__) || defined (__FreeBSD_kernel__) || defined (__APPLE__)
++#if defined (__FreeBSD__) || defined (__FreeBSD_kernel__) || defined (__APPLE__) || defined (__OpenBSD__)
+ #define fstat64 fstat
+ #define stat64 stat
+ #endif

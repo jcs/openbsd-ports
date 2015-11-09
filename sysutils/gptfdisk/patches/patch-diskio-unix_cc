@@ -1,0 +1,73 @@
+$OpenBSD$
+--- diskio-unix.cc.orig	Sun Oct 18 17:35:18 2015
++++ diskio-unix.cc	Mon Nov  9 11:28:07 2015
+@@ -28,6 +28,10 @@
+ #ifdef __linux__
+ #include "linux/hdreg.h"
+ #endif
++#ifdef __OpenBSD__
++#include <sys/dkio.h>
++#include <sys/disklabel.h>
++#endif
+ 
+ #include <iostream>
+ 
+@@ -138,6 +142,9 @@ int DiskIO::GetBlockSize(void) {
+ #ifdef __sun__
+    struct dk_minfo minfo;
+ #endif
++#ifdef __OpenBSD__
++   struct disklabel dl;
++#endif
+ 
+    // If disk isn't open, try to open it....
+    if (!isOpen) {
+@@ -156,6 +163,11 @@ int DiskIO::GetBlockSize(void) {
+ #if defined (__FreeBSD__) || defined (__FreeBSD_kernel__)
+       err = ioctl(fd, DIOCGSECTORSIZE, &blockSize);
+ #endif
++#if defined (__OpenBSD__)
++      err = ioctl(fd, DIOCGPDINFO, &dl);
++      if (err != -1)
++          blockSize = dl.d_secsize;
++#endif
+ #ifdef __linux__
+       err = ioctl(fd, BLKSSZGET, &blockSize);
+ #endif
+@@ -248,6 +260,13 @@ int DiskIO::DiskSync(void) {
+            << "You should reboot or remove the drive.\n";
+       platformFound++;
+ #endif
++#if defined (__OpenBSD__)
++      sleep(2);
++      i = ioctl(fd, DIOCRLDINFO);
++      cout << "Warning: The kernel may continue to use old or deleted partitions.\n"
++           << "You should reboot or remove the drive.\n";
++      platformFound++;
++#endif
+ #ifdef __linux__
+       sleep(1); // Theoretically unnecessary, but ioctl() fails sometimes if omitted....
+       fsync(fd);
+@@ -396,6 +415,9 @@ uint64_t DiskIO::DiskSize(int *err) {
+ #ifdef __sun__
+    struct dk_minfo minfo;
+ #endif
++#ifdef __OpenBSD__
++   struct disklabel dl;
++#endif
+ 
+    // If disk isn't open, try to open it....
+    if (!isOpen) {
+@@ -423,6 +445,12 @@ uint64_t DiskIO::DiskSize(int *err) {
+       long long b = GetBlockSize();
+       sectors = bytes / b;
+       platformFound++;
++#endif
++#if defined (__OpenBSD__)
++      if (ioctl(fd, DIOCGPDINFO, &dl) != -1) {
++          sectors = DL_GETDSIZE(&dl);
++          platformFound++;
++      }
+ #endif
+ #ifdef __linux__
+       long sz;

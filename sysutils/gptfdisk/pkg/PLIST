@@ -1,0 +1,9 @@
+@comment $OpenBSD$
+@bin bin/cgdisk
+@bin bin/fixparts
+@bin bin/gdisk
+@bin bin/sgdisk
+@man man/man8/cgdisk.8
+@man man/man8/fixparts.8
+@man man/man8/gdisk.8
+@man man/man8/sgdisk.8
