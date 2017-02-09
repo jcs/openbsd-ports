@@ -1,14 +1,12 @@
 # $OpenBSD: Makefile,v 1.69 2011/05/04 07:49:40 sthen Exp $
 
-COMMENT=	tty-based e-mail client, development version
+COMMENT=	tty-based e-mail client, jcs branch
 
 GH_ACCOUNT =	jcs
 GH_PROJECT =	mutt
-GH_COMMIT =	4b58aec575ee10091ea644cefa4ac0c6ed5ae50d
-DISTNAME =	${GH_PROJECT}-${GH_ACCOUNT}-1.5.21
+GH_COMMIT =	9cd56c72f546c677f1874086ba36a3a191323e02
+DISTNAME =	${GH_PROJECT}-${GH_ACCOUNT}-1.7.2
 CATEGORIES =	mail
-
-REVISION=	1
 
 MAINTAINER=	jcs@openbsd.org
 
@@ -23,24 +21,25 @@ MODULES=	devel/gettext
 WANTLIB=	c crypto ssl qdbm>=14 z ncurses
 
 AUTOCONF_VERSION= 2.65
-AUTOMAKE_VERSION= 1.9
+AUTOMAKE_VERSION= 1.15
 CONFIGURE_STYLE= gnu autoconf
 USE_GROFF =	Yes
 
 CONFIGURE_ARGS= --enable-hcache \
-		--enable-smtp \
-		--without-gdbm \
+		--enable-sidebar \
+		--disable-fcntl \
 		--enable-external_dotlock \
 		--enable-flock \
 		--enable-imap \
 		--enable-pop \
-		--disable-fcntl \
+		--enable-smtp \
 		--mandir=${PREFIX}/man \
 		--sysconfdir=${CONFDIR} \
-		--with-docdir="${PREFIX}/share/doc/mutt" \
-		--without-gss \
-		--with-ssl \
 		--with-curses \
+		--with-docdir="${PREFIX}/share/doc/mutt" \
+		--with-ssl \
+		--without-gdbm \
+		--without-gss \
 		--without-idn
 FAKE_FLAGS=	sysconfdir="${PREFIX}/share/examples/mutt"
 
