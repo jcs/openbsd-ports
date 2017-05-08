@@ -11,8 +11,10 @@ PERMIT_PACKAGE_CDROM= Yes
 
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=gptfdisk/}
 
-# uuid
-LIB_DEPENDS=	sysutils/e2fsprogs
+HOMEPAGE=	http://www.rodsbooks.com/gdisk/
+
+LIB_DEPENDS=	devel/popt \
+		sysutils/e2fsprogs
 
 MAKE_FLAGS=	CPPFLAGS+=-I${LOCALBASE}/include \
 		LDFLAGS+=-L${LOCALBASE}/lib
