@@ -14,16 +14,26 @@ MAINTAINER=	jcs@openbsd.org
 PERMIT_PACKAGE_CDROM=	Yes
 PERMIT_PACKAGE_FTP=	Yes
 
-WANTLIB=		X11 Xau Xdmcp Xext Xft Xinerama Xrender Xtst c expat \
-			fontconfig freetype z pthread-stubs xcb
+WANTLIB=	X11 Xau Xdmcp Xext Xft Xinerama Xrender Xtst c expat \
+		fontconfig freetype z pthread-stubs xcb
 
 BUILD_DEPENDS=	${MODGNU_AUTOCONF_DEPENDS} \
 		${MODGNU_AUTOMAKE_DEPENDS}
 
-CONFIGURE_STYLE=	gnu
-AUTOCONF_VERSION=	2.69
-AUTOMAKE_VERSION=	1.15
-CONFIGURE_ARGS+=	--with-xterm=${X11BASE}/bin/xterm
+FLAVORS=	xft
+FLAVOR?=
+
+CONFIGURE_STYLE= gnu
+AUTOCONF_VERSION= 2.69
+AUTOMAKE_VERSION= 1.15
+CONFIGURE_ARGS+= --with-xterm=${X11BASE}/bin/xterm
+
+.if ${FLAVOR:Mxft}
+CONFIGURE_ARGS+= --with-xft
+WANTLIB+=	Xft
+.else
+CONFIGURE_ARGS+= --without-xft
+.endif
 
 pre-configure:
 	@cd ${WRKSRC} && \
