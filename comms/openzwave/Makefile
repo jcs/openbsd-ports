@@ -19,24 +19,19 @@ SHARED_LIBS=		openzwave 1.4
 
 MODULES=		devel/gettext
 LIB_DEPENDS=		devel/libusb1
-BUILD_DEPENDS=		devel/doxygen
 
 USE_GMAKE=		Yes
-
-MAKE_ENV=		CPPFLAGS="'-I${LOCALBASE}/include -I${LOCALBASE}/include/usb-1.0'" \
-			LDFLAGS="-L${LOCALBASE}/lib -liconv -lusb-1.0" \
-			instlibdir=${PREFIX}/lib \
-			includedir=${PREFIX}/include/openzwave \
-			pkgconfigdir=${PREFIX}/lib/pkgconfig \
-			sysconfdir=${PREFIX}/share/openzwave \
-			docdir=${PREFIX}/share/doc/openzwave \
-			PREFIX=${TRUEPREFIX}
 
 FAKE_FLAGS=		instlibdir=${PREFIX}/lib \
 			includedir=${PREFIX}/include/openzwave \
 			pkgconfigdir=${PREFIX}/lib/pkgconfig \
 			sysconfdir=${PREFIX}/share/openzwave \
 			docdir=${PREFIX}/share/doc/openzwave \
-			PREFIX=${TRUEPREFIX}
+			PREFIX=${TRUEPREFIX} \
+			DOXYGEN=
+
+MAKE_ENV=		CPPFLAGS="'-I${LOCALBASE}/include -I${LOCALBASE}/include/usb-1.0'" \
+			LDFLAGS="-L${LOCALBASE}/lib -liconv -lusb-1.0" \
+			${FAKE_FLAGS}
 
 .include <bsd.port.mk>
