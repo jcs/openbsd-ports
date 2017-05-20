@@ -1,0 +1,24 @@
+$OpenBSD$
+--- cpp/examples/MinOZW/Main.cpp.orig	Sun Apr 10 22:08:44 2016
++++ cpp/examples/MinOZW/Main.cpp	Sat May 20 12:08:47 2017
+@@ -267,7 +267,11 @@ int main( int argc, char* argv[] )
+ 	// The first argument is the path to the config files (where the manufacturer_specific.xml file is located
+ 	// The second argument is the path for saved Z-Wave network state and the log file.  If you leave it NULL 
+ 	// the log file will appear in the program's working directory.
++#ifdef __OpenBSD__
++	Options::Create( "/usr/local/share/openzwave/", "", "" );
++#else
+ 	Options::Create( "../../../config/", "", "" );
++#endif
+ 	Options::Get()->AddOptionInt( "SaveLogLevel", LogLevel_Detail );
+ 	Options::Get()->AddOptionInt( "QueueLogLevel", LogLevel_Debug );
+ 	Options::Get()->AddOptionInt( "DumpTrigger", LogLevel_Error );
+@@ -291,6 +295,8 @@ int main( int argc, char* argv[] )
+ 	string port = "/dev/cu.usbserial";
+ #elif WIN32
+         string port = "\\\\.\\COM6";
++#elif __OpenBSD__
++        string port = "/dev/cuaU0";
+ #else
+ 	string port = "/dev/ttyUSB0";
+ #endif

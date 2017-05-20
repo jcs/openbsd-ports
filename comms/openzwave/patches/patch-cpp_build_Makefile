@@ -1,0 +1,31 @@
+$OpenBSD$
+--- cpp/build/Makefile.orig	Sun Apr 10 22:08:44 2016
++++ cpp/build/Makefile	Sat May 20 10:47:48 2017
+@@ -38,6 +38,9 @@ CFLAGS	+= -c -DDARWIN
+ TARCH	+= -arch i386 -arch x86_64
+ LDFLAGS += -dynamiclib
+ LIBS	+= -framework IOKit -framework CoreFoundation -arch i386 -arch x86_64
++else ifeq ($(UNAME),OpenBSD)
++LDFLAGS+= -shared -lusb-1.0 -L${LOCALBASE}/lib
++CFLAGS += -I${LOCALBASE}/include/libusb-1.0 -I${LOCALBASE}/include
+ else ifeq ($(UNAME),FreeBSD)
+ LDFLAGS+= -shared -lusb
+ 
+@@ -72,6 +75,8 @@ ifeq ($(UNAME),Darwin)
+ SOURCES_HIDAPI =$(top_srcdir)/cpp/hidapi/mac
+ else ifeq ($(UNAME),FreeBSD)
+ SOURCES_HIDAPI =$(top_srcdir)/cpp/hidapi/libusb
++else ifeq ($(UNAME),OpenBSD)
++SOURCES_HIDAPI =$(top_srcdir)/cpp/hidapi/libusb
+ else
+ SOURCES_HIDAPI =$(top_srcdir)/cpp/hidapi/linux
+ endif
+@@ -88,6 +93,8 @@ tinyxml := $(notdir $(wildcard $(top_srcdir)/cpp/tinyx
+ ifeq ($(UNAME),Darwin)
+ hidapi := $(notdir $(wildcard $(top_srcdir)/cpp/hidapi/mac/*.c))
+ else ifeq ($(UNAME),FreeBSD)
++hidapi := $(notdir $(wildcard $(top_srcdir)/cpp/hidapi/libusb/*.c))
++else ifeq ($(UNAME),OpenBSD)
+ hidapi := $(notdir $(wildcard $(top_srcdir)/cpp/hidapi/libusb/*.c))
+ else
+ hidapi := $(notdir $(wildcard $(top_srcdir)/cpp/hidapi/linux/*.c)) # we do not want the libusb version

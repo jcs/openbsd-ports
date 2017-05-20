@@ -1,0 +1,13 @@
+$OpenBSD$
+--- cpp/src/platform/unix/EventImpl.cpp.orig	Sat May 20 10:55:10 2017
++++ cpp/src/platform/unix/EventImpl.cpp	Sat May 20 10:55:23 2017
+@@ -52,7 +52,9 @@ EventImpl::EventImpl
+ 	
+ 	pthread_condattr_t ca;
+ 	pthread_condattr_init( &ca );
++#ifndef __OpenBSD__
+ 	pthread_condattr_setpshared( &ca, PTHREAD_PROCESS_PRIVATE );
++#endif
+ 	pthread_cond_init( &m_condition, &ca );
+ 	pthread_condattr_destroy( &ca );
+ }
