@@ -3,16 +3,14 @@
 COMMENT=	CUPS printer driver for some Brother laser printers
 
 V=		3
-DISTNAME=	v${V}
-DIST_SUBDIR=	brlaser
-PKGNAME=	${DIST_SUBDIR}-${V}
+DISTNAME=	brlaser-${V}
 
 CATEGORIES=	print
 HOMEPAGE=	https://github.com/pdewacht/brlaser
 
 MAINTAINER=	joshua stein <jcs@openbsd.org>
 
-MASTER_SITES=	${HOMEPAGE}/archive/
+MASTER_SITES=	https://github.com/pdewacht/brlaser/releases/download/v$V/
 
 # GPLv2
 PERMIT_PACKAGE_CDROM= Yes
@@ -20,19 +18,15 @@ PERMIT_PACKAGE_CDROM= Yes
 WANTLIB+=	c pthread cups cupsimage
 LIB_DEPENDS=	print/cups,-libs
 
-MODULES+=	converters/libiconv \
-		gcc4
+MODULES+=	gcc4
 MODGCC4_ARCHS=	*
 MODGCC4_LANGS=	c++
+
+BUILD_DEPENDS =	${MODGNU_AUTOCONF_DEPENDS} \
+		${MODGNU_AUTOMAKE_DEPENDS}
 
 CONFIGURE_STYLE= gnu
 AUTOCONF_VERSION=2.69
 AUTOMAKE_VERSION=1.15
-
-WRKDIST=	${WRKDIR}/${PKGNAME}
-
-post-patch:
-	@cd ${WRKSRC} && env AUTOCONF_VERSION=${AUTOCONF_VERSION} \
-		AUTOMAKE_VERSION=${AUTOMAKE_VERSION} NOCONFIGURE=1 ./autogen.sh
 
 .include <bsd.port.mk>
