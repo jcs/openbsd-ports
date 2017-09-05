@@ -13,8 +13,8 @@ PERMIT_PACKAGE_CDROM= Yes
 
 GH_ACCOUNT =	jcs
 GH_PROJECT =	intel_backlight_fbsd
-GH_COMMIT =	1d9432b97202728e53b0f7ef0f2a5c15aeaf5b80
-DISTNAME =	${GH_PROJECT:S/_fbsd//}-20160623p0
+GH_COMMIT =	49e67dc4d55c9d1e3d4adc9b7c8e68142a8fc7a0
+DISTNAME =	${GH_PROJECT:S/_fbsd//}-20170905
 
 do-install:
 	${INSTALL_PROGRAM} ${WRKBUILD}/intel_backlight ${PREFIX}/bin
