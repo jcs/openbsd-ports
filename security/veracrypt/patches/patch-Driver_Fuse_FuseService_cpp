@@ -1,0 +1,47 @@
+$OpenBSD$
+
+Make compatible with our Fuse version 26
+
+Index: Driver/Fuse/FuseService.cpp
+--- Driver/Fuse/FuseService.cpp.orig
++++ Driver/Fuse/FuseService.cpp
+@@ -10,7 +10,7 @@
+  code distribution packages.
+ */
+ 
+-#define FUSE_USE_VERSION  25
++#define FUSE_USE_VERSION  26
+ #include <errno.h>
+ #include <fcntl.h>
+ #include <fuse.h>
+@@ -51,7 +51,7 @@ namespace VeraCrypt
+ 		return 0;
+ 	}
+ 
+-	static void *fuse_service_init ()
++	static void *fuse_service_init (struct fuse_conn_info *)
+ 	{
+ 		try
+ 		{
+@@ -435,10 +435,12 @@ namespace VeraCrypt
+ 
+ 		if (getuid() == 0 || geteuid() == 0)
+ #endif
++#ifndef TC_OPENBSD
+ 		{
+ 			args.push_back ("-o");
+ 			args.push_back ("allow_other");
+ 		}
++#endif
+ 
+ 		ExecFunctor execFunctor (openVolume, slotNumber);
+ 		Process::Execute ("fuse", args, -1, &execFunctor);
+@@ -583,7 +585,7 @@ namespace VeraCrypt
+ 
+ 		SignalHandlerPipe->GetWriteFD();
+ 
+-		_exit (fuse_main (argc, argv, &fuse_service_oper));
++		_exit (fuse_main (argc, argv, &fuse_service_oper, NULL));
+ 	}
+ 
+ 	VolumeInfo FuseService::OpenVolumeInfo;

@@ -1,0 +1,70 @@
+$OpenBSD$
+
+Work around old wxWidgets not having wxUniChar, wxScopedPtr, ToStdWstring()
+
+Index: Main/Application.cpp
+--- Main/Application.cpp.orig
++++ Main/Application.cpp
+@@ -26,7 +26,11 @@ namespace VeraCrypt
+ 	{
+ 		void EnsureEndsWithPathSeparator( wxString &s )
+ 		{
++#ifdef TC_OPENBSD
++			const wxChar pathSeparator = wxFileName::GetPathSeparator();
++#else
+ 			const wxUniChar pathSeparator = wxFileName::GetPathSeparator();
++#endif
+ 			if (s[s.size() - 1] != pathSeparator)
+ 				s.append(pathSeparator);
+ 		}
+@@ -88,7 +92,11 @@ namespace VeraCrypt
+ 
+ 	FilePath Application::GetConfigFilePath (const wxString &configFileName, bool createConfigDir)
+ 	{
++#ifdef TC_OPENBSD
++		static const wxString *configDirC = NULL;
++#else
+ 		static wxScopedPtr<const wxString> configDirC;
++#endif
+ 		static bool configDirExists = false;
+ 
+ 		if (!configDirExists)
+@@ -108,7 +116,11 @@ namespace VeraCrypt
+ 				}
+ 
+ 				EnsureEndsWithPathSeparator(*configDir);
++#ifdef TC_OPENBSD
++				configDirC = configDir;
++#else
+ 				configDirC.reset(configDir);
++#endif
+ 			}
+ 
+ 			if (createConfigDir)
+@@ -116,16 +128,26 @@ namespace VeraCrypt
+ 				if (!wxDirExists(*configDirC))
+ 				{
+ 					//wcerr << L"Creating config dir »" << *configDirC << L"« ..." << endl;
++#ifdef TC_OPENBSD
+ 					throw_sys_sub_if(
+ 						!wxMkdir(*configDirC, wxS_IRUSR | wxS_IWUSR | wxS_IXUSR),
++						wstring (*configDirC));
++#else
++					throw_sys_sub_if(
++						!wxMkdir(*configDirC, wxS_IRUSR | wxS_IWUSR | wxS_IXUSR),
+ 						configDirC->ToStdWstring());
++#endif
+ 				}
+ 				configDirExists = true;
+ 				//wcerr << L"Config directory »" << *configDirC << L"« exists now" << endl;
+ 			}
+ 		}
+ 
++#ifdef TC_OPENBSD
++		return FilePath(std::string((*configDirC + configFileName).mb_str()));
++#else
+ 		return FilePath((*configDirC + configFileName).ToStdWstring());
++#endif
+ 	}
+ 
+ 	DirectoryPath Application::GetExecutableDirectory ()
