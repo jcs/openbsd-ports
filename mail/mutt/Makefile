@@ -4,8 +4,8 @@ COMMENT=	tty-based e-mail client, jcs branch
 
 GH_ACCOUNT =	jcs
 GH_PROJECT =	mutt
-GH_COMMIT =	9cd56c72f546c677f1874086ba36a3a191323e02
-DISTNAME =	${GH_PROJECT}-${GH_ACCOUNT}-1.7.2
+GH_COMMIT =	ba30c67cd1c2abc7ade9ab355e89c295ab84a48c
+DISTNAME =	${GH_PROJECT}-${GH_ACCOUNT}-20171224
 CATEGORIES =	mail
 
 MAINTAINER=	jcs@openbsd.org
@@ -16,9 +16,7 @@ HOMEPAGE=	http://www.mutt.org/
 PERMIT_PACKAGE_CDROM=	Yes
 PERMIT_PACKAGE_FTP=	Yes
 
-MODULES=	devel/gettext
-
-WANTLIB=	c crypto ssl qdbm>=14 z ncurses
+WANTLIB=	c crypto curses iconv intl ssl qdbm>=14 z
 
 AUTOCONF_VERSION= 2.65
 AUTOMAKE_VERSION= 1.15
@@ -51,10 +49,9 @@ CONFIGURE_ENV=	CPPFLAGS="-I${LOCALBASE}/include" \
 		LDFLAGS="-L${LOCALBASE}/lib" \
 		ISPELL="${LOCALBASE}/bin/ispell"
 
-LIB_DEPENDS=	databases/qdbm
-BUILD_DEPENDS+=	textproc/docbook \
-		textproc/docbook-xsl \
-		textproc/libxslt
+LIB_DEPENDS=	databases/qdbm \
+		devel/gettext
+BUILD_DEPENDS+=	textproc/docbook-xsl
 
 MUTTRCDIR=	doc/
 
