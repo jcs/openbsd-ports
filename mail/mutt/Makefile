@@ -4,7 +4,7 @@ COMMENT=	tty-based e-mail client, jcs branch
 
 GH_ACCOUNT =	jcs
 GH_PROJECT =	mutt
-GH_COMMIT =	ba30c67cd1c2abc7ade9ab355e89c295ab84a48c
+GH_COMMIT =	0a16f2b0bba9daff60213b5eb051d9b03fe6f553
 DISTNAME =	${GH_PROJECT}-${GH_ACCOUNT}-20171224
 CATEGORIES =	mail
 
