@@ -3,7 +3,7 @@ $OpenBSD$
 Index: Makefile
 --- Makefile.orig
 +++ Makefile
-@@ -318,6 +318,27 @@ ifeq "$(shell uname -s)" "FreeBSD"
+@@ -321,6 +321,27 @@ ifeq "$(shell uname -s)" "FreeBSD"
  endif
  
  

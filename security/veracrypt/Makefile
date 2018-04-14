@@ -2,7 +2,7 @@
 
 COMMENT=		free open source disk encryption software
 
-V=			1.21
+V=			1.22
 PKGNAME=		veracrypt-${V}
 CATEGORIES=		security
 HOMEPAGE=		https://www.veracrypt.fr/
@@ -11,7 +11,7 @@ HOMEPAGE=		https://www.veracrypt.fr/
 PERMIT_PACKAGE_CDROM=	yes
 PERMIT_PACKAGE_FTP=	yes
 
-MASTER_SITES=		https://launchpad.net/veracrypt/trunk/1.21/+download/
+MASTER_SITES=		https://launchpad.net/veracrypt/trunk/${V}/+download/
 DISTNAME=		VeraCrypt_${V}_Source
 EXTRACT_SUFX=		.tar.bz2
 
