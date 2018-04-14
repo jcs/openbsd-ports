@@ -4,8 +4,8 @@ COMMENT=	minimal wm based on GNU screen
 
 GH_ACCOUNT =	jcs
 GH_PROJECT =	ratpoison
-GH_COMMIT =	84ec15e513cf7ced8fbdbff8809b3e479c8c9193
-DISTNAME =	${GH_PROJECT}-${GH_ACCOUNT}-20170927
+GH_COMMIT =	390fcb16c8722cb0c5c0443b8a3aa34e5b81b78f
+DISTNAME =	${GH_PROJECT}-${GH_ACCOUNT}-20170928
 CATEGORIES =	x11
 
 MAINTAINER=	jcs@openbsd.org
@@ -35,10 +35,10 @@ WANTLIB+=	Xft
 CONFIGURE_ARGS+= --without-xft
 .endif
 
+MAKE_ENV=	AUTOCONF_VERSION=${AUTOCONF_VERSION} \
+		AUTOMAKE_VERSION=${AUTOMAKE_VERSION}
+
 pre-configure:
-	@cd ${WRKSRC} && \
-		AUTOCONF_VERSION=${AUTOCONF_VERSION} \
-		AUTOMAKE_VERSION=${AUTOMAKE_VERSION} \
-		autoreconf -i
+	@cd ${WRKSRC} && autoreconf -i
 
 .include <bsd.port.mk>

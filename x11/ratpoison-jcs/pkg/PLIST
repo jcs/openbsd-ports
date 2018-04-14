@@ -6,7 +6,6 @@ bin/rpws
 share/doc/ratpoison/
 share/doc/ratpoison/AUTHORS
 share/doc/ratpoison/COPYING
-share/doc/ratpoison/ChangeLog
 share/doc/ratpoison/NEWS
 share/doc/ratpoison/README
 share/emacs/
