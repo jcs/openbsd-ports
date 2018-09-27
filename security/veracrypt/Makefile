@@ -3,6 +3,7 @@
 COMMENT=		free open source disk encryption software
 
 V=			1.22
+REVISION=		0
 PKGNAME=		veracrypt-${V}
 CATEGORIES=		security
 HOMEPAGE=		https://www.veracrypt.fr/

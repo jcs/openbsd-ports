@@ -23,20 +23,7 @@ Index: Driver/Fuse/FuseService.cpp
  	{
  		try
  		{
-@@ -435,10 +435,12 @@ namespace VeraCrypt
- 
- 		if (getuid() == 0 || geteuid() == 0)
- #endif
-+#ifndef TC_OPENBSD
- 		{
- 			args.push_back ("-o");
- 			args.push_back ("allow_other");
- 		}
-+#endif
- 
- 		ExecFunctor execFunctor (openVolume, slotNumber);
- 		Process::Execute ("fuse", args, -1, &execFunctor);
-@@ -583,7 +585,7 @@ namespace VeraCrypt
+@@ -583,7 +583,7 @@ namespace VeraCrypt
  
  		SignalHandlerPipe->GetWriteFD();
  
