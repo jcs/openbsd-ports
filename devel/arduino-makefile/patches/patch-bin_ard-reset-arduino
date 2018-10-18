@@ -1,0 +1,11 @@
+$OpenBSD$
+
+Index: bin/ard-reset-arduino
+--- bin/ard-reset-arduino.orig
++++ bin/ard-reset-arduino
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python2.7
+ 
+ from __future__ import print_function
+ import serial

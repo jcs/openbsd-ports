@@ -1,0 +1,11 @@
+$OpenBSD$
+
+Index: bin/robotis-loader
+--- bin/robotis-loader.orig
++++ bin/robotis-loader
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/python2.7
+ 
+ # This script sends a program on a robotis board (OpenCM9.04 or CM900)
+ # using the robotis bootloader (used in OpenCM IDE)
