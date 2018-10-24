@@ -4,6 +4,7 @@ COMMENT=	open-source electronics prototyping platform
 
 V=		1.8.7
 AVR_V=		1.6.23
+EPOCH=		0
 GH_ACCOUNT=	arduino
 GH_PROJECT=	arduino
 GH_TAGNAME=	${V}
