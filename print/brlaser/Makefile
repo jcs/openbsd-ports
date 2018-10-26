@@ -8,10 +8,12 @@ GH_TAGNAME=	v4
 
 CATEGORIES=	print
 
+MAINTAINER=	Antoine Jacoutot <ajacoutot@openbsd.org>
+
 # GPLv2+
 PERMIT_PACKAGE_CDROM= Yes
 
-WANTLIB+=	${COMPILER_LIBCXX} c cupsimage iconv
+WANTLIB+=	${COMPILER_LIBCXX} c cups cupsimage m
 
 MODULES=	devel/cmake
 
