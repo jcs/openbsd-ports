@@ -15,6 +15,8 @@ WANTLIB+=	${COMPILER_LIBCXX} c cupsimage iconv
 
 MODULES=	devel/cmake
 
+COMPILER =	base-clang ports-gcc base-gcc
+
 LIB_DEPENDS=	print/cups,-libs
 
 .include <bsd.port.mk>
