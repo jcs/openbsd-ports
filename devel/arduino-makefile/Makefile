@@ -17,9 +17,16 @@ RUN_DEPENDS=	devel/arduino \
 		devel/gmake \
 		devel/py-serial
 
+MODULES=	lang/python
+MODPY_BUILDDEP=	No
+MODPY_ADJ_FILES= bin/ard-reset-arduino bin/robotis-loader
+
 NO_BUILD=       Yes
 NO_TEST=	Yes
 PKG_ARCH=       *
+
+do-configure:
+	${SUBST_CMD} ${WRKSRC}/Common.mk ${WRKSRC}/Arduino.mk
 
 do-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/arduino-makefile

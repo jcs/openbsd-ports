@@ -8,7 +8,7 @@ Index: Arduino.mk
      # Works for 1.0 and 1.0.1 and 1.6.10 and debian-style 2:1.0.5+dfsg2-4
      VERSION_FILE := $(ARDUINO_DIR)/lib/version.txt
 -    AUTO_ARDUINO_VERSION := $(shell [ -e $(VERSION_FILE) ] && cat $(VERSION_FILE) | sed -e 's/^[0-9]://g' -e 's/[.]//g' -e 's/\+.*//g' | head -c5)
-+    AUTO_ARDUINO_VERSION := $(shell [ -e $(VERSION_FILE) ] && cat $(VERSION_FILE) | sed -e 's/^[0-9]://g' -e 's/[.]//g' -e 's/\+.*//g' | head -n5)
++    AUTO_ARDUINO_VERSION := $(shell [ -e $(VERSION_FILE) ] && cat $(VERSION_FILE) | sed -e 's/^[0-9]://g' -e 's/[.]//g' -e 's/\+.*//g' | dd bs=1 count=5 status=none)
      ifdef AUTO_ARDUINO_VERSION
          ARDUINO_VERSION = $(AUTO_ARDUINO_VERSION)
          $(call show_config_variable,ARDUINO_VERSION,[AUTODETECTED])
@@ -21,7 +21,7 @@ Index: Arduino.mk
 +        else ifeq ($(CURRENT_OS),OPENBSD)
 +
 +            ifndef AVRDUDE_CONF
-+                AVRDUDE_CONF  = /etc/avrdude.conf
++                AVRDUDE_CONF  = ${SYSCONFDIR}/avrdude.conf
              endif
  
          else
