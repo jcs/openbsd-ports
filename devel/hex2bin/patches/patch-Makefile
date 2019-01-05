@@ -1,0 +1,38 @@
+$OpenBSD$
+
+Index: Makefile
+--- Makefile.orig
++++ Makefile
+@@ -1,17 +1,15 @@
+ # Makefile hex2bin/mot2bin
+ 
+-CPFLAGS = -std=c99 -O2 -Wall -pedantic
+-
+ # Compile
+ %.o : %.c
+-	gcc -c $(CPFLAGS) $< -o $@
++	$(CC) -c $(CFLAGS) $< -o $@
+ 
+ #WIN64_GCC = x86_64-w64-mingw32-gcc
+ WINDOWS = i686-w64-mingw32
+ WIN_GCC = $(WINDOWS)-gcc
+ WIN_STRIP = $(WINDOWS)-strip
+ 
+-INSTALL_DIR = /usr/local
++INSTALL_DIR = $(PREFIX)
+ MAN_DIR = $(INSTALL_DIR)/man/man1
+ 
+ all: hex2bin mot2bin hex2bin.1
+@@ -20,10 +18,10 @@ hex2bin.1: hex2bin.pod
+ 	pod2man hex2bin.pod > hex2bin.1
+ 
+ hex2bin: hex2bin.o common.o libcrc.o binary.o
+-	gcc -O2 -Wall -o hex2bin hex2bin.o common.o libcrc.o binary.o
++	$(CC) $(CFLAGS) -o hex2bin hex2bin.o common.o libcrc.o binary.o
+ 
+ mot2bin: mot2bin.o common.o libcrc.o binary.o
+-	gcc -O2 -Wall -o mot2bin mot2bin.o common.o libcrc.o binary.o
++	$(CC) $(CFLAGS) -o mot2bin mot2bin.o common.o libcrc.o binary.o
+ 
+ windows:
+ #	$(WIN32_GCC) $(CPFLAGS) -o Win32/hex2bin.exe hex2bin.c common.c libcrc.c binary.c

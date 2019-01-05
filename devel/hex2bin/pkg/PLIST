@@ -1,0 +1,4 @@
+@comment $OpenBSD: PLIST,v$
+@bin bin/hex2bin
+@bin bin/mot2bin
+@man man/man1/hex2bin.1
