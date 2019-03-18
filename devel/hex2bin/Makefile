@@ -9,7 +9,7 @@ CATEGORIES=		devel
 HOMEPAGE=		https://hex2bin.sourceforge.net/
 
 # BSD
-PERMIT_PACKAGE_FTP=	yes
+PERMIT_PACKAGE_CDROM=	yes
 
 MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=hex2bin/}
 EXTRACT_SUFX=		.tar.bz2
