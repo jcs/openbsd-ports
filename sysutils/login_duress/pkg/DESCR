@@ -1,4 +1,0 @@
-login_duress provides configured users with a separate duress
-password that, when entered instead of the user's normal
-login password, will execute a pre-configured command as that
-user.
