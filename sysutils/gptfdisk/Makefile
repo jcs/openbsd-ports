@@ -2,7 +2,7 @@
 
 COMMENT=	disk partitioning tool
 
-DISTNAME=	gptfdisk-1.0.1
+DISTNAME=	gptfdisk-1.0.3
 
 CATEGORIES =	sysutils
 

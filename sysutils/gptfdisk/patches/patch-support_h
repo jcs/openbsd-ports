@@ -1,9 +1,10 @@
 $OpenBSD$
---- support.h.orig	Mon Nov  9 11:05:58 2015
-+++ support.h	Mon Nov  9 11:06:31 2015
+Index: support.h
+--- support.h.orig
++++ support.h
 @@ -10,7 +10,7 @@
  
- #define GPTFDISK_VERSION "1.0.1"
+ #define GPTFDISK_VERSION "1.0.3"
  
 -#if defined (__FreeBSD__) || defined (__FreeBSD_kernel__) || defined (__APPLE__)
 +#if defined (__FreeBSD__) || defined (__FreeBSD_kernel__) || defined (__APPLE__) || defined (__OpenBSD__)

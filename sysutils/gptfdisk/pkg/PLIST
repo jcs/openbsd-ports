@@ -1,4 +1,4 @@
-@comment $OpenBSD$
+@comment $OpenBSD: PLIST,v$
 @bin bin/cgdisk
 @bin bin/fixparts
 @bin bin/gdisk
