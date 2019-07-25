@@ -1,0 +1,11 @@
+@comment $OpenBSD: PLIST,v$
+bin/_rubyshim
+bin/bundle
+bin/bundler
+bin/erb
+bin/gem
+bin/irb
+bin/rake
+bin/rdoc
+bin/ri
+bin/ruby
