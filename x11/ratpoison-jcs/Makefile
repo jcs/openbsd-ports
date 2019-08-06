@@ -11,8 +11,7 @@ CATEGORIES =	x11
 MAINTAINER=	jcs@openbsd.org
 
 # GPL
-PERMIT_PACKAGE_CDROM=	Yes
-PERMIT_PACKAGE_FTP=	Yes
+PERMIT_PACKAGE=	yes
 
 WANTLIB=	X11 Xau Xdmcp Xext Xft Xinerama Xrender Xtst c expat \
 		fontconfig freetype z xcb Xrandr

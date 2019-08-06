@@ -15,8 +15,7 @@ HOMEPAGE=		http://www.asterisk.org/
 # Asterisk with OpenSSL and OpenH323 and distribute the resulting binary
 # files." iLBC codec has BSD-like license terms, but also see patent
 # notes in codecs/ilbc/LICENSE_ADDENDUM.
-PERMIT_PACKAGE_CDROM=	patent licensing clauses
-PERMIT_PACKAGE_FTP=	Yes
+PERMIT_PACKAGE=		yes
 
 WANTLIB+=		c crypto curl execinfo gsm idn iksemel
 WANTLIB+=		m ogg pthread spandsp ssl stdc++ termcap

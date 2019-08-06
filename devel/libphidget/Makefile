@@ -15,8 +15,7 @@ HOMEPAGE=		http://www.phidgets.com/
 MAINTAINER=		joshua stein <jcs@openbsd.org>
 
 # LGPL
-PERMIT_PACKAGE_CDROM=	Yes
-PERMIT_PACKAGE_FTP=	Yes
+PERMIT_PACKAGE=		Yes
 
 WANTLIB=		c m pthread usb-1.0
 MODULES=		devel/gettext

@@ -15,7 +15,7 @@ MAINTAINER=	joshua stein <jcs@openbsd.org>
 MASTER_SITES=	${HOMEPAGE}/archive/
 
 # BSD
-PERMIT_PACKAGE_CDROM= Yes
+PERMIT_PACKAGE=	yes
 
 WANTLIB+=	X11 Xext Xrandr c
 

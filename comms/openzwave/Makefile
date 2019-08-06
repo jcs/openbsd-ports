@@ -8,8 +8,7 @@ CATEGORIES=		comms
 HOMEPAGE=		http://www.openzwave.net/
 
 # LGPL2
-PERMIT_PACKAGE_CDROM=	yes
-PERMIT_PACKAGE_FTP=	yes
+PERMIT_PACKAGE=		yes
 
 MASTER_SITES=		http://old.openzwave.com/downloads/
 

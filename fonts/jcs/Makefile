@@ -8,9 +8,8 @@ CATEGORIES=		fonts
 
 MAINTAINER=		jcs@jcs.org
 
-PERMIT_PACKAGE_CDROM=	nope
-PERMIT_PACKAGE_FTP=	nope
-PERMIT_DISTFILES_FTP=	nope
+PERMIT_PACKAGE=		nope
+PERMIT_DISTFILES=	nope
 
 MASTER_SITES=		http://jcs.org/tmp/
 

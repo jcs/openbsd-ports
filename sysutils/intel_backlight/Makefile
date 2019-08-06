@@ -9,7 +9,7 @@ CATEGORIES =	sysutils
 MAINTAINER=	joshua stein <jcs@openbsd.org>
 
 # BSD
-PERMIT_PACKAGE_CDROM= Yes
+PERMIT_PACKAGE=	yes
 
 GH_ACCOUNT =	jcs
 GH_PROJECT =	intel_backlight_fbsd

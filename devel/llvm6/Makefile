@@ -41,7 +41,7 @@ HOMEPAGE =	http://www.llvm.org/
 MAINTAINER=	Jeremie Courreges-Anglas <jca@wxcvbn.org>
 
 # BSD
-PERMIT_PACKAGE_CDROM =	Yes
+PERMIT_PACKAGE=	Yes
 
 WANTLIB =	${COMPILER_LIBCXX} c curses edit form m panel pthread \
 		${MODPY_WANTLIB} z

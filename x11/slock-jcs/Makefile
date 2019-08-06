@@ -11,7 +11,7 @@ CATEGORIES =		x11
 MAINTAINER=		jcs@openbsd.org
 
 # MIT
-PERMIT_PACKAGE_CDROM=	Yes
+PERMIT_PACKAGE=	yes
 
 WANTLIB=		X11 c Xext Xrandr
 

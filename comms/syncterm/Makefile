@@ -9,7 +9,7 @@ EXTRACT_SUFX=	.tgz
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=syncterm/}
 
 # GPLv2
-PERMIT_PACKAGE_CDROM=	Yes
+PERMIT_PACKAGE=	Yes
 
 WANTLIB +=	c curses m ossaudio pthread util
 

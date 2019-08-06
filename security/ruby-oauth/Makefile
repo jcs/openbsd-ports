@@ -7,9 +7,8 @@ CATEGORIES=	security net
 
 HOMEPAGE=	http://oauth.rubyforge.org/
 
-# mit
-PERMIT_PACKAGE_CDROM=	Yes
-PERMIT_PACKAGE_FTP=	Yes
+# MIT
+PERMIT_PACKAGE=	yes
 
 BUILD_DEPENDS=	${RUN_DEPENDS}
 RUN_DEPENDS=	security/ruby-hmac,${MODRUBY_FLAVOR}

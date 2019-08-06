@@ -9,8 +9,7 @@ CATEGORIES=		security
 HOMEPAGE=		https://www.veracrypt.fr/
 
 # Apache2
-PERMIT_PACKAGE_CDROM=	yes
-PERMIT_PACKAGE_FTP=	yes
+PERMIT_PACKAGE=	yes
 
 MASTER_SITES=		https://launchpad.net/veracrypt/trunk/${V}/+download/
 DISTNAME=		VeraCrypt_${V}_Source

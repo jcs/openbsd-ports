@@ -14,7 +14,7 @@ HOMEPAGE =	https://crystal-lang.org/
 #MAINTAINER =	Wesley Moxam <wes@wmoxam.com>
 
 # Apache 2.0
-PERMIT_PACKAGE_CDROM =	Yes
+PERMIT_PACKAGE=	Yes
 
 WANTLIB += ${COMPILER_LIBCXX} c event_core event_extra gc iconv
 WANTLIB += m pcre yaml

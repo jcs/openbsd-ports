@@ -13,8 +13,7 @@ MAINTAINER=	jcs@openbsd.org
 HOMEPAGE=	http://www.mutt.org/
 
 # GPLv2+
-PERMIT_PACKAGE_CDROM=	Yes
-PERMIT_PACKAGE_FTP=	Yes
+PERMIT_PACKAGE=	yes
 
 WANTLIB=	c crypto curses iconv intl ssl qdbm>=14 z
 
