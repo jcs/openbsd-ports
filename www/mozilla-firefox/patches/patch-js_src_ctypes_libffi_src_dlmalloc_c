@@ -1,0 +1,20 @@
+$OpenBSD: patch-js_src_ctypes_libffi_src_dlmalloc_c,v 1.4 2014/09/02 16:43:04 landry Exp $
+use /dev/random to init memory within libffi ?
+--- js/src/ctypes/libffi/src/dlmalloc.c.orig	Wed Jul 23 05:13:14 2014
++++ js/src/ctypes/libffi/src/dlmalloc.c	Thu Jul 24 20:47:22 2014
+@@ -2520,7 +2520,6 @@ static int init_mparams(void) {
+ 
+ #if (FOOTERS && !INSECURE)
+     {
+-#if USE_DEV_RANDOM
+       int fd;
+       unsigned char buf[sizeof(size_t)];
+       /* Try to use /dev/urandom, else fall back on using time */
+@@ -2530,7 +2529,6 @@ static int init_mparams(void) {
+         close(fd);
+       }
+       else
+-#endif /* USE_DEV_RANDOM */
+         s = (size_t)(time(0) ^ (size_t)0x55555555U);
+ 
+       s |= (size_t)8U;    /* ensure nonzero */

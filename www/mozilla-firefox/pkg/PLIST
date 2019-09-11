@@ -1,0 +1,69 @@
+@comment $OpenBSD: PLIST,v 1.80 2019/05/21 16:51:12 landry Exp $
+@conflict firefox3-*
+@conflict firefox35-*
+@conflict firefox36-*
+@conflict mozilla-firebird-*
+@conflict mozilla-firefox-*
+@pkgpath www/firefox3
+@pkgpath www/firefox35
+@pkgpath www/firefox36
+@pkgpath www/firefox4
+@pkgpath www/mozilla-firefox,-main
+bin/${MOZILLA_PROJECT}
+bin/mozilla-${MOZILLA_PROJECT}
+lib/${MOZILLA_PROJECT}/
+lib/${MOZILLA_PROJECT}/application.ini
+lib/${MOZILLA_PROJECT}/browser/
+lib/${MOZILLA_PROJECT}/browser/blocklist.xml
+lib/${MOZILLA_PROJECT}/browser/chrome/
+lib/${MOZILLA_PROJECT}/browser/chrome.manifest
+lib/${MOZILLA_PROJECT}/browser/chrome/icons/
+lib/${MOZILLA_PROJECT}/browser/chrome/icons/default/
+lib/${MOZILLA_PROJECT}/browser/chrome/icons/default/default.png
+lib/${MOZILLA_PROJECT}/browser/chrome/icons/default/default128.png
+lib/${MOZILLA_PROJECT}/browser/chrome/icons/default/default16.png
+lib/${MOZILLA_PROJECT}/browser/chrome/icons/default/default32.png
+lib/${MOZILLA_PROJECT}/browser/chrome/icons/default/default48.png
+lib/${MOZILLA_PROJECT}/browser/chrome/icons/default/default64.png
+lib/${MOZILLA_PROJECT}/browser/defaults/
+lib/${MOZILLA_PROJECT}/browser/defaults/preferences/
+lib/${MOZILLA_PROJECT}/browser/defaults/preferences/all-openbsd.js
+lib/${MOZILLA_PROJECT}/browser/features/
+lib/${MOZILLA_PROJECT}/browser/features/formautofill@mozilla.org.xpi
+lib/${MOZILLA_PROJECT}/browser/features/fxmonitor@mozilla.org.xpi
+lib/${MOZILLA_PROJECT}/browser/features/screenshots@mozilla.org.xpi
+lib/${MOZILLA_PROJECT}/browser/features/webcompat-reporter@mozilla.org.xpi
+lib/${MOZILLA_PROJECT}/browser/features/webcompat@mozilla.org.xpi
+lib/${MOZILLA_PROJECT}/browser/omni.ja
+lib/${MOZILLA_PROJECT}/chrome.manifest
+lib/${MOZILLA_PROJECT}/defaults/
+lib/${MOZILLA_PROJECT}/defaults/pref/
+lib/${MOZILLA_PROJECT}/defaults/pref/channel-prefs.js
+lib/${MOZILLA_PROJECT}/dependentlibs.list
+lib/${MOZILLA_PROJECT}/distribution/
+lib/${MOZILLA_PROJECT}/distribution/distribution.ini
+@bin lib/${MOZILLA_PROJECT}/${MOZILLA_PROJECT}
+@bin lib/${MOZILLA_PROJECT}/${MOZILLA_PROJECT}-bin
+lib/${MOZILLA_PROJECT}/gmp-clearkey/
+lib/${MOZILLA_PROJECT}/gmp-clearkey/0.1/
+@lib lib/${MOZILLA_PROJECT}/gmp-clearkey/0.1/libclearkey.so.${LIBclearkey_VERSION}
+lib/${MOZILLA_PROJECT}/gmp-clearkey/0.1/manifest.json
+lib/${MOZILLA_PROJECT}/gtk2/
+@lib lib/${MOZILLA_PROJECT}/gtk2/libmozgtk.so.${LIBmozgtk_VERSION}
+@lib lib/${MOZILLA_PROJECT}/liblgpllibs.so.${LIBlgpllibs_VERSION}
+@lib lib/${MOZILLA_PROJECT}/libmozavcodec.so.${LIBmozavcodec_VERSION}
+@lib lib/${MOZILLA_PROJECT}/libmozavutil.so.${LIBmozavutil_VERSION}
+@lib lib/${MOZILLA_PROJECT}/libmozgtk.so.${LIBmozgtk_VERSION}
+@lib lib/${MOZILLA_PROJECT}/libxul.so.${LIBxul_VERSION}
+lib/${MOZILLA_PROJECT}/omni.ja
+@bin lib/${MOZILLA_PROJECT}/pingsender
+lib/${MOZILLA_PROJECT}/platform.ini
+@bin lib/${MOZILLA_PROJECT}/plugin-container
+lib/${MOZILLA_PROJECT}/removed-files
+@man man/man1/${MOZILLA_PROJECT}.1
+@man man/man1/mozilla-${MOZILLA_PROJECT}.1
+share/applications/${MOZILLA_PROJECT}.desktop
+share/doc/pkg-readmes/${PKGSTEM}
+share/pixmaps/
+share/pixmaps/${MOZILLA_PROJECT}.png
+@tag update-desktop-database
