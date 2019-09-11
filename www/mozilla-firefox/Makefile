@@ -102,4 +102,9 @@ post-install:
 	# link default48.png to default.png to be used by default by non-icccm compliant wm
 	ln ${PREFIX}/lib/${MOZILLA_PROJECT}/browser/chrome/icons/default/default{48,}.png
 
+	${INSTALL_DATA_DIR} ${PREFIX}/share/examples/${MOZILLA_PROJECT}
+.for f in unveil.content unveil.gpu unveil.main
+	${INSTALL_DATA} ${FILESDIR}/${f} ${PREFIX}/share/examples/${MOZILLA_PROJECT}/
+.endfor
+
 .include <bsd.port.mk>
