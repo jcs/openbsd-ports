@@ -19,7 +19,7 @@ WANTLIB=	c crypto curses iconv intl ssl qdbm>=14 z
 
 AUTOCONF_VERSION= 2.65
 AUTOMAKE_VERSION= 1.15
-CONFIGURE_STYLE= gnu autoconf
+CONFIGURE_STYLE= gnu autoreconf
 USE_GROFF =	Yes
 
 CONFIGURE_ARGS= --enable-hcache \
@@ -58,12 +58,6 @@ MUTTRCDIR=	doc/
 CONFDIR=	${SYSCONFDIR}/mutt
 SUBST_VARS=	CONFDIR
 MUTTRCDIR?=
-
-post-patch:
-	cd ${WRKSRC}; \
-	    AUTOCONF_VERSION=${AUTOCONF_VERSION} \
-	    AUTOMAKE_VERSION=${AUTOMAKE_VERSION} \
-	    autoreconf --install
 
 post-install:
 	@mv -f ${PREFIX}/share/doc/mutt/samples/* ${PREFIX}/share/examples/mutt
