@@ -4,8 +4,8 @@ COMMENT=	tty-based e-mail client, jcs branch
 
 GH_ACCOUNT =	jcs
 GH_PROJECT =	mutt
-GH_COMMIT =	a53c435c295291535d132d9dee9df8528c5fbd1a
-DISTNAME =	${GH_PROJECT}-${GH_ACCOUNT}-20190621
+GH_COMMIT =	0360ea70b5db6f20266d05e11093b40f39fa7b43
+DISTNAME =	${GH_PROJECT}-${GH_ACCOUNT}-20190718
 CATEGORIES =	mail
 
 MAINTAINER=	jcs@openbsd.org
@@ -41,9 +41,9 @@ CONFIGURE_ARGS= --enable-hcache \
 		--disable-nls
 FAKE_FLAGS=	sysconfdir="${PREFIX}/share/examples/mutt"
 
-.if defined(DEBUG)
+#.if defined(DEBUG)
 CONFIGURE_ARGS+=--enable-debug
-.endif
+#.endif
 
 CONFIGURE_ENV=	CPPFLAGS="-I${LOCALBASE}/include" \
 		LDFLAGS="-L${LOCALBASE}/lib" \

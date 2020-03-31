@@ -1,0 +1,39 @@
+@comment $OpenBSD: PLIST,v 1.4 2019/09/28 00:29:11 jsg Exp $
+%%aarch64%%
+%%arm%%
+${CONFIG}/bootstrap/
+${CONFIG}/bootstrap/bin/
+@bin ${CONFIG}/bootstrap/bin/${CONFIG}-cpp
+@bin ${CONFIG}/bootstrap/bin/${CONFIG}-gcc
+@bin ${CONFIG}/bootstrap/bin/${CONFIG}-gcc-${GCC_VERSION}
+@bin ${CONFIG}/bootstrap/bin/${CONFIG}-gcc-ar
+@bin ${CONFIG}/bootstrap/bin/${CONFIG}-gcc-nm
+@bin ${CONFIG}/bootstrap/bin/${CONFIG}-gcc-ranlib
+${CONFIG}/bootstrap/libexec/
+${CONFIG}/bootstrap/libexec/gcc/
+${CONFIG}/bootstrap/libexec/gcc/${CONFIG}/
+${CONFIG}/bootstrap/libexec/gcc/${CONFIG}/${GCC_VERSION}/
+@bin ${CONFIG}/bootstrap/libexec/gcc/${CONFIG}/${GCC_VERSION}/cc1
+@bin ${CONFIG}/bootstrap/libexec/gcc/${CONFIG}/${GCC_VERSION}/collect2
+${CONFIG}/bootstrap/libexec/gcc/${CONFIG}/${GCC_VERSION}/install-tools/
+${CONFIG}/bootstrap/libexec/gcc/${CONFIG}/${GCC_VERSION}/install-tools/fixinc.sh
+@bin ${CONFIG}/bootstrap/libexec/gcc/${CONFIG}/${GCC_VERSION}/install-tools/fixincl
+${CONFIG}/bootstrap/libexec/gcc/${CONFIG}/${GCC_VERSION}/install-tools/mkheaders
+${CONFIG}/bootstrap/libexec/gcc/${CONFIG}/${GCC_VERSION}/install-tools/mkinstalldirs
+@bin ${CONFIG}/bootstrap/libexec/gcc/${CONFIG}/${GCC_VERSION}/lto-wrapper
+@comment @man man/man1/${CONFIG}-cpp.1
+@comment @man man/man1/${CONFIG}-gcc.1
+@comment @man man/man1/${CONFIG}-gcov-dump.1
+@comment @man man/man1/${CONFIG}-gcov-tool.1
+@comment @man man/man1/${CONFIG}-gcov.1
+@comment share/gcc-${GCC_VERSION}/
+@comment share/gcc-${GCC_VERSION}/python/
+@comment share/gcc-${GCC_VERSION}/python/libstdcxx/
+@comment share/gcc-${GCC_VERSION}/python/libstdcxx/__init__.py
+@comment share/gcc-${GCC_VERSION}/python/libstdcxx/v6/
+@comment share/gcc-${GCC_VERSION}/python/libstdcxx/v6/__init__.py
+@comment share/gcc-${GCC_VERSION}/python/libstdcxx/v6/printers.py
+@comment share/gcc-${GCC_VERSION}/python/libstdcxx/v6/xmethods.py
+@comment @man man/man7/fsf-funding.7
+@comment @man man/man7/gfdl.7
+@comment @man man/man7/gpl.7

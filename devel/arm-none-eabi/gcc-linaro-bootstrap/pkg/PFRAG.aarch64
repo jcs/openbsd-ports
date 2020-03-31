@@ -1,0 +1,46 @@
+@comment $OpenBSD: PFRAG.aarch64,v 1.3 2019/09/28 00:29:11 jsg Exp $
+${CONFIG}/bootstrap/lib/
+${CONFIG}/bootstrap/lib/gcc/
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/crtbegin.o
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/crtend.o
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/crtfastmath.o
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/crti.o
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/crtn.o
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include/
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include-fixed/
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include-fixed/README
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include-fixed/limits.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include-fixed/syslimits.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include/arm_acle.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include/arm_cmse.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include/arm_fp16.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include/arm_neon.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include/float.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include/gcov.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include/iso646.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include/mmintrin.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include/stdalign.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include/stdarg.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include/stdatomic.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include/stdbool.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include/stddef.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include/stdfix.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include/stdint-gcc.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include/stdint.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include/stdnoreturn.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include/tgmath.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include/unwind-arm-common.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include/unwind.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/include/varargs.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/install-tools/
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/install-tools/fixinc_list
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/install-tools/gsyslimits.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/install-tools/include/
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/install-tools/include/README
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/install-tools/include/limits.h
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/install-tools/macro_list
+${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/install-tools/mkheaders.conf
+@static-lib ${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/libgcc.a
+@static-lib ${CONFIG}/bootstrap/lib/gcc/${CONFIG}/${GCC_VERSION}/libgcov.a

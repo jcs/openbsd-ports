@@ -6,7 +6,7 @@ V=			2.5
 DISTNAME=		Hex2bin-${V}
 PKGNAME=		hex2bin-${V}
 CATEGORIES=		devel
-HOMEPAGE=		https://hex2bin.sourceforge.net/
+HOMEPAGE=		http://hex2bin.sourceforge.net/
 
 # BSD
 PERMIT_PACKAGE=		yes
