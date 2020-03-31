@@ -1,0 +1,5 @@
+Teensyduino is a software add-on for the Arduino, to run sketches on
+the Teensy and Teensy++.
+
+Various 3rd party libraries are included for use with the Teensy or
+add-on hardware.

@@ -1,0 +1,28 @@
+$OpenBSD$
+
+Index: Teensy.mk
+--- Teensy.mk.orig
++++ Teensy.mk
+@@ -61,7 +61,9 @@ ifeq ($(strip $(ARCHITECTURE)),)
+ 	ARCHITECTURE = arm
+ endif
+ 
++ifneq ($(UNAME_S),OpenBSD)
+ AVR_TOOLS_DIR = $(call dir_if_exists,$(ARDUINO_DIR)/hardware/tools/$(ARCHITECTURE))
++endif
+ 
+ # define plaform lib dir ignoring teensy's oversight on putting it all in avr
+ ifndef ARDUINO_PLATFORM_LIB_PATH
+@@ -211,3 +213,12 @@ RESET_CMD = nohup $(ARDUINO_DIR)/hardware/tools/teensy
+ 
+ include $(ARDMK_DIR)/Arduino.mk
+ 
++ifeq ($(UNAME_S),OpenBSD)
++    LDFLAGS += -L$(ARDUINO_DIR)/hardware/arm/arm-none-eabi/lib
++    LDFLAGS := $(subst -flto -fuse-linker-plugin,,$(LDFLAGS))
++    CXXFLAGS := $(subst -flto,,$(CXXFLAGS))
++    CFLAGS := $(subst -flto,,$(CFLAGS))
++    ASFLAGS := $(subst -flto,,$(ASFLAGS))
++    AR_NAME := arm-none-eabi-ar
++    RESET_CMD = teensyloader --mcu=$(AMCU) -w -v $(abspath $(OBJDIR))/$(TARGET).hex
++endif
