@@ -1,0 +1,14 @@
+$OpenBSD$
+
+Index: grub-core/Makefile
+--- grub-core/Makefile.orig
++++ grub-core/Makefile
+@@ -32246,7 +32246,7 @@ lib/x86_64/xen/relocator_module-relocator.obj: lib/x86
+ #	$(AM_V_CPPAS_no)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(relocator_module_CPPFLAGS) $(CPPFLAGS) $(relocator_module_CCASFLAGS) $(CCASFLAGS) -c -o lib/x86_64/xen/relocator_module-relocator.obj `if test -f 'lib/x86_64/xen/relocator.S'; then $(CYGPATH_W) 'lib/x86_64/xen/relocator.S'; else $(CYGPATH_W) '$(srcdir)/lib/x86_64/xen/relocator.S'; fi`
+ 
+ lib/setjmp_module-setjmp.o: lib/setjmp.S
+-	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(setjmp_module_CPPFLAGS) $(CPPFLAGS) $(setjmp_module_CCASFLAGS) $(CCASFLAGS) -MT lib/setjmp_module-setjmp.o -MD -MP -MF lib/$(DEPDIR)/setjmp_module-setjmp.Tpo -c -o lib/setjmp_module-setjmp.o `test -f 'lib/setjmp.S' || echo '$(srcdir)/'`lib/setjmp.S
++	$(AM_V_CPPAS)egcc $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(subst -no-integrated-as,,$(subst -no-implicit-float,,$(subst -Xclang,,$(setjmp_module_CPPFLAGS) $(CPPFLAGS) $(setjmp_module_CCASFLAGS) $(CCASFLAGS)))) -MT lib/setjmp_module-setjmp.o -MD -MP -MF lib/$(DEPDIR)/setjmp_module-setjmp.Tpo -c -o lib/setjmp_module-setjmp.o `test -f 'lib/setjmp.S' || echo '$(srcdir)/'`lib/setjmp.S
+ 	$(AM_V_at)$(am__mv) lib/$(DEPDIR)/setjmp_module-setjmp.Tpo lib/$(DEPDIR)/setjmp_module-setjmp.Po
+ #	$(AM_V_CPPAS)source='lib/setjmp.S' object='lib/setjmp_module-setjmp.o' libtool=no \
+ #	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) \
