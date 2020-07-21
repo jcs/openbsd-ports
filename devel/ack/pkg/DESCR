@@ -1,0 +1,5 @@
+The Amsterdam Compiler Kit is a complete compiler toolchain
+consisting of front end compilers for a number of different
+languages, code generators, support libraries, and all the
+tools necessary to go from source code to executable on any
+of the platforms it supports.

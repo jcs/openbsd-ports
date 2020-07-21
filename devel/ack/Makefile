@@ -1,0 +1,24 @@
+# $OpenBSD$
+
+COMMENT=		Amsterdam Compiler Kit
+
+CATEGORIES=		devel
+
+V=			20200613
+GH_ACCOUNT=		davidgiven
+GH_PROJECT=		ack
+GH_COMMIT=		cb540ec91763ede053f071295ce913288865ad2e
+DISTNAME=		ack-${V}
+
+# BSD
+PERMIT_PACKAGE=		yes
+
+WANTLIB+=		c
+
+BUILD_DEPENDS=		devel/ninja
+USE_GMAKE=		Yes
+
+MAKE_FLAGS=		ACK_TEMP_DIR=${WRKDIR}
+FAKE_FLAGS=		PREFIX=${WRKINST}${PREFIX}
+
+.include <bsd.port.mk>
