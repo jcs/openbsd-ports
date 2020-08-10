@@ -2,7 +2,8 @@
 
 COMMENT=	BBS terminal program
 
-DISTNAME=	syncterm-1.0
+PKGNAME=	syncterm-1.1
+DISTNAME=	${PKGNAME}-src
 HOMEPAGE=	http://syncterm.bbsdev.net/
 
 EXTRACT_SUFX=	.tgz
@@ -24,9 +25,13 @@ MAKE_FLAGS=	WITHOUT_CRYPTLIB=1 \
 		USE_SDL=1 \
 		SDL_CONFIG=${LOCALBASE}/bin/sdl-config \
 		QUIET=
+CFLAGS+=	-DN_CURSES_LIB -D_XOPEN_SOURCE_EXTENDED=1
 
 FAKE_FLAGS=	PREFIX=${PREFIX}
 
-WRKSRC=		${WRKDIST}/src/syncterm
+WRKDIST=	${WRKDIR}/${PKGNAME}/src/syncterm
+
+post-install:
+	gzip -d ${PREFIX}/man/man1/syncterm.1.gz
 
 .include <bsd.port.mk>
