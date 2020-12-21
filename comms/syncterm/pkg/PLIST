@@ -8,3 +8,5 @@ share/icons/hicolor/
 share/icons/hicolor/64x64/
 share/icons/hicolor/64x64/apps/
 share/icons/hicolor/64x64/apps/syncterm.png
+@tag update-desktop-database
+@tag gtk-update-icon-cache %D/share/icons/hicolor

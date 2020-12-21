@@ -17,13 +17,15 @@ WANTLIB +=	c curses m ossaudio pthread util
 CATEGORIES=	comms net
 
 USE_GMAKE=	Yes
+BUILD_DEPENDS=	devel/sdl2
 # SDL gets dlopen'd at runtime
-RUN_DEPENDS=	devel/sdl
+RUN_DEPENDS=	${LIB_DEPENDS}
 
 MAKE_FILE=	GNUmakefile
-MAKE_FLAGS=	WITHOUT_CRYPTLIB=1 \
+MAKE_FLAGS=	RELEASE=1 \
+		WITHOUT_CRYPTLIB=1 \
 		USE_SDL=1 \
-		SDL_CONFIG=${LOCALBASE}/bin/sdl-config \
+		SDL_CONFIG=${LOCALBASE}/bin/sdl2-config \
 		QUIET=
 CFLAGS+=	-DN_CURSES_LIB -D_XOPEN_SOURCE_EXTENDED=1
 
