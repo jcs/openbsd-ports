@@ -1,0 +1,77 @@
+$OpenBSD$
+
+Index: Teensyduino.app/Contents/Java/hardware/teensy/avr/boards.txt
+--- Teensyduino.app/Contents/Java/hardware/teensy/avr/boards.txt.orig
++++ Teensyduino.app/Contents/Java/hardware/teensy/avr/boards.txt
+@@ -30,7 +30,7 @@ teensy41.build.flags.defs=-D__IMXRT1062__ -DTEENSYDUIN
+ teensy41.build.flags.cpp=-std=gnu++14 -fno-exceptions -fpermissive -fno-rtti -fno-threadsafe-statics -felide-constructors -Wno-error=narrowing
+ teensy41.build.flags.c=
+ teensy41.build.flags.S=-x assembler-with-cpp
+-teensy41.build.flags.libs=-larm_cortexM7lfsp_math -lm -lstdc++
++teensy41.build.flags.libs=-lm -lstdc++
+ teensy41.serial.restart_cmd=false
+ teensy41.menu.usb.serial=Serial
+ teensy41.menu.usb.serial.build.usbtype=USB_SERIAL
+@@ -230,7 +230,7 @@ teensyMM.build.flags.defs=-D__IMXRT1062__ -DTEENSYDUIN
+ teensyMM.build.flags.cpp=-std=gnu++14 -fno-exceptions -fpermissive -fno-rtti -fno-threadsafe-statics -felide-constructors -Wno-error=narrowing
+ teensyMM.build.flags.c=
+ teensyMM.build.flags.S=-x assembler-with-cpp
+-teensyMM.build.flags.libs=-larm_cortexM7lfsp_math -lm -lstdc++
++teensyMM.build.flags.libs=-lm -lstdc++
+ teensyMM.serial.restart_cmd=false
+ teensyMM.menu.usb.serial=Serial
+ teensyMM.menu.usb.serial.build.usbtype=USB_SERIAL
+@@ -430,7 +430,7 @@ teensy40.build.flags.defs=-D__IMXRT1062__ -DTEENSYDUIN
+ teensy40.build.flags.cpp=-std=gnu++14 -fno-exceptions -fpermissive -fno-rtti -fno-threadsafe-statics -felide-constructors -Wno-error=narrowing
+ teensy40.build.flags.c=
+ teensy40.build.flags.S=-x assembler-with-cpp
+-teensy40.build.flags.libs=-larm_cortexM7lfsp_math -lm -lstdc++
++teensy40.build.flags.libs=-lm -lstdc++
+ teensy40.serial.restart_cmd=false
+ teensy40.menu.usb.serial=Serial
+ teensy40.menu.usb.serial.build.usbtype=USB_SERIAL
+@@ -627,7 +627,7 @@ teensy36.build.flags.cpp=-fno-exceptions -fpermissive 
+ teensy36.build.flags.c=
+ teensy36.build.flags.S=-x assembler-with-cpp
+ teensy36.build.flags.ld=-Wl,--gc-sections,--relax,--defsym=__rtc_localtime={extra.time.local} "-T{build.core.path}/mk66fx1m0.ld"
+-teensy36.build.flags.libs=-larm_cortexM4lf_math -lm -lstdc++
++teensy36.build.flags.libs=-lm -lstdc++
+ teensy36.serial.restart_cmd=false
+ teensy36.menu.usb.serial=Serial
+ teensy36.menu.usb.serial.build.usbtype=USB_SERIAL
+@@ -836,7 +836,7 @@ teensy35.build.flags.cpp=-fno-exceptions -fpermissive 
+ teensy35.build.flags.c=
+ teensy35.build.flags.S=-x assembler-with-cpp
+ teensy35.build.flags.ld=-Wl,--gc-sections,--relax,--defsym=__rtc_localtime={extra.time.local} "-T{build.core.path}/mk64fx512.ld"
+-teensy35.build.flags.libs=-larm_cortexM4lf_math -lm -lstdc++
++teensy35.build.flags.libs=-lm -lstdc++
+ teensy35.serial.restart_cmd=false
+ teensy35.menu.usb.serial=Serial
+ teensy35.menu.usb.serial.build.usbtype=USB_SERIAL
+@@ -1035,7 +1035,7 @@ teensy31.build.flags.cpp=-fno-exceptions -fpermissive 
+ teensy31.build.flags.c=
+ teensy31.build.flags.S=-x assembler-with-cpp
+ teensy31.build.flags.ld=-Wl,--gc-sections,--relax,--defsym=__rtc_localtime={extra.time.local} "-T{build.core.path}/mk20dx256.ld"
+-teensy31.build.flags.libs=-larm_cortexM4l_math -lm -lstdc++
++teensy31.build.flags.libs=-lm -lstdc++
+ teensy31.serial.restart_cmd=false
+ teensy31.menu.usb.serial=Serial
+ teensy31.menu.usb.serial.build.usbtype=USB_SERIAL
+@@ -1246,7 +1246,7 @@ teensy30.build.flags.c=
+ teensy30.build.flags.S=-x assembler-with-cpp
+ teensy30.build.flags.ld=-Wl,--gc-sections,--relax,--defsym=__rtc_localtime={extra.time.local} "-T{build.core.path}/mk20dx128.ld"
+ teensy30.build.flags.ldspecs=--specs=nano.specs
+-teensy30.build.flags.libs=-larm_cortexM4l_math -lm -lstdc++
++teensy30.build.flags.libs=-lm -lstdc++
+ teensy30.serial.restart_cmd=false
+ 
+ teensy30.menu.usb.serial=Serial
+@@ -1404,7 +1404,7 @@ teensyLC.build.flags.cpp=-fno-exceptions -fpermissive 
+ teensyLC.build.flags.c=
+ teensyLC.build.flags.S=-x assembler-with-cpp
+ teensyLC.build.flags.ld=-Wl,--gc-sections,--relax,--defsym=__rtc_localtime={extra.time.local} "-T{build.core.path}/mkl26z64.ld"
+-teensyLC.build.flags.libs=-larm_cortexM0l_math -lm -lstdc++
++teensyLC.build.flags.libs=-lm -lstdc++
+ teensyLC.serial.restart_cmd=false
+ teensyLC.menu.usb.serial=Serial
+ teensyLC.menu.usb.serial.build.usbtype=USB_SERIAL

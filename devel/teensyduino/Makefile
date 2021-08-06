@@ -2,10 +2,12 @@
 
 COMMENT=	libraries to run Arduino sketches on the Teensy
 
-V=		153
+V=		154
 DISTFILES=	Teensyduino_MacOS_Catalina.zip
 PKGNAME=	teensyduino-${V}
 MASTER_SITES=	https://www.pjrc.com/teensy/td_${V}/
+DIST_SUBDIR=	${PKGNAME}
+REVISION=	0
 
 CATEGORIES=	devel
 HOMEPAGE=	https://www.arduino.cc/
