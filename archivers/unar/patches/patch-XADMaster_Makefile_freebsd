@@ -1,0 +1,58 @@
+Index: The Unarchiver/XADMaster/Makefile.freebsd
+--- The Unarchiver/XADMaster/Makefile.freebsd.orig
++++ The Unarchiver/XADMaster/Makefile.freebsd
+@@ -11,7 +11,6 @@ AR = ar
+ GNUSTEP_OPTS =	-DGNUSTEP \
+ 		-DGNU_RUNTIME=1 \
+ 		-D_NATIVE_OBJC_EXCEPTIONS \
+-		-fgnu-runtime \
+ 		-fexceptions \
+ 		-fobjc-exceptions \
+ 		-fconstant-string-class=NSConstantString
+@@ -19,9 +18,11 @@ GNUSTEP_OPTS =	-DGNUSTEP \
+ GCC_OPTS = 	-O2 \
+ 		-Wno-import \
+ 		-Wno-multichar \
++		-Wno-parentheses \
+ 		-g \
+ 		-D_FILE_OFFSET_BITS=64 \
+-		-isystem /usr/local/GNUstep/System/Library/Headers \
++		-isystem /usr/local/include/GNUstepBase \
++		-I/usr/local/include/gnustep \
+ 		-I/usr/local/include
+ 
+ OBJC_OPTS =	-std=gnu99
+@@ -43,14 +44,12 @@ LIBS =	-Wl,--no-whole-archive \
+ 	-lz \
+ 	-lbz2 \
+ 	-licuuc \
+-	-lobjc \
++	-lobjc2 \
+ 	-lm
+ 
+ ALL_LDFLAGS =	-Wl,--whole-archive \
+ 		-fexceptions \
+-		-fgnu-runtime \
+ 		-L/usr/local/lib \
+-		-L/usr/local/GNUstep/System/Library/Libraries \
+ 		$(LDFLAGS)
+ 
+ # Paths
+@@ -74,7 +73,7 @@ libXADMaster.a: $(LIBRARY_OBJS)
+ 	$(AR) rcs $@ $^
+ 
+ ../UniversalDetector/libUniversalDetector.a:
+-	gmake -C ../UniversalDetector -f Makefile.linux
++	gmake -C ../UniversalDetector -f Makefile.freebsd
+ 
+ XADTest2: $(XADTEST2_OBJS) libXADMaster.a ../UniversalDetector/libUniversalDetector.a
+ 	$(LD) $(ALL_LDFLAGS) -o $@ $^ $(LIBS)
+@@ -99,7 +98,7 @@ lsar: $(LSAR_OBJS) $(CMDLINE_OBJS) libXADMaster.a ../U
+ 
+ clean:
+ 	rm -rf $(BUILD_DIR) $(EXECUTABLE_FILES) $(LIBRARY_FILES)
+-	gmake -C ../UniversalDetector -f Makefile.linux clean
++	gmake -C ../UniversalDetector -f Makefile.freebsd clean
+ 
+ .PHONY: ../UniversalDetector/libUniversalDetector.a clean
+ 

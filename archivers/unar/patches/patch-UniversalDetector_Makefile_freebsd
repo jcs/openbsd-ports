@@ -1,0 +1,39 @@
+Index: The Unarchiver/UniversalDetector/Makefile.freebsd
+--- The Unarchiver/UniversalDetector/Makefile.freebsd.orig
++++ The Unarchiver/UniversalDetector/Makefile.freebsd
+@@ -11,7 +11,6 @@ AR = ar
+ GNUSTEP_OPTS =	-DGNUSTEP \
+ 		-DGNU_RUNTIME=1 \
+ 		-D_NATIVE_OBJC_EXCEPTIONS \
+-		-fgnu-runtime \
+ 		-fexceptions \
+ 		-fobjc-exceptions \
+ 		-fconstant-string-class=NSConstantString
+@@ -19,9 +18,11 @@ GNUSTEP_OPTS =	-DGNUSTEP \
+ GCC_OPTS = 	-O2 \
+ 		-Wno-import \
+ 		-Wno-multichar \
++		-Wno-parentheses \
+ 		-g \
+ 		-D_FILE_OFFSET_BITS=64 \
+-		-isystem /usr/local/GNUstep/System/Library/Headers \
++		-isystem /usr/local/include/GNUstepBase \
++		-I/usr/local/include/gnustep \
+ 		-I/usr/local/include
+ 
+ OBJC_OPTS =	-std=gnu99
+@@ -40,13 +41,11 @@ ALL_CXXFLAGS = $(CXX_OPTS) $(GCC_OPTS) $(CXXFLAGS)
+ 
+ LIBS =  -Wl,--no-whole-archive \
+ 	-lgnustep-base \
+-	-lobjc \
++	-lobjc2 \
+ 	-lm
+ 
+ ALL_LDFLAGS =	-Wl,--whole-archive \
+ 		-fexceptions \
+-		-fgnu-runtime \
+-		-L/usr/local/GNUstep/System/Library/Libraries \
+ 		-L/usr/local/lib \
+ 		$(LDFLAGS)
+ 

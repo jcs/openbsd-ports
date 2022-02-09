@@ -1,0 +1,5 @@
+@comment $OpenBSD$
+@bin bin/lsar
+@bin bin/unar
+@man man/man1/lsar.1
+@man man/man1/unar.1

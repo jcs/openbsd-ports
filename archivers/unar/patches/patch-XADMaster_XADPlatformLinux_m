@@ -1,0 +1,12 @@
+Index: The Unarchiver/XADMaster/XADPlatformLinux.m
+--- The Unarchiver/XADMaster/XADPlatformLinux.m.orig
++++ The Unarchiver/XADMaster/XADPlatformLinux.m
+@@ -56,7 +56,7 @@ preservePermissions:(BOOL)preservepermissions
+ 		if(access) times[0]=[access timevalStruct];
+ 		if(modification) times[1]=[modification timevalStruct];
+ 
+-		int res=lutimes(cpath,times);
++		int res=utimes(cpath,times);
+ 		if(res!=0&&res!=ENOSYS) return XADUnknownError; // TODO: better error
+ 	}
+ 
