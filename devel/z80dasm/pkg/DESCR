@@ -1,0 +1,4 @@
+z80dasm is a disassembler for the Zilog Z80 microprocessor and
+compatibles. It can be used to reverse engineer programs and
+operating systems for 1980's microcomputers using this processor
+architecture (for example Sinclair ZX81, Spectrum and many others).

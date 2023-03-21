@@ -1,0 +1,2 @@
+@bin bin/z80dasm
+@man man/man1/z80dasm.1
