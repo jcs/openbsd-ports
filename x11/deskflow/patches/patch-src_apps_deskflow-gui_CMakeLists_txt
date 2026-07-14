@@ -1,0 +1,30 @@
+Index: src/apps/deskflow-gui/CMakeLists.txt
+--- src/apps/deskflow-gui/CMakeLists.txt.orig
++++ src/apps/deskflow-gui/CMakeLists.txt
+@@ -49,12 +49,20 @@ target_link_libraries(
+   Qt6::Widgets
+   Qt6::Network)
+ 
+-install(
+-  TARGETS ${target}
+-  RUNTIME_DEPENDENCY_SET guiDeps
+-  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+-  BUNDLE DESTINATION .
+-)
++if(CMAKE_SYSTEM_NAME STREQUAL "OpenBSD")
++  install(
++    TARGETS ${target}
++    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
++    BUNDLE DESTINATION .
++  )
++else()
++  install(
++    TARGETS ${target}
++    RUNTIME_DEPENDENCY_SET guiDeps
++    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
++    BUNDLE DESTINATION .
++  )
++endif()
+ 
+ if(WIN32)
+   set_target_properties(${target} PROPERTIES LINK_FLAGS "/NODEFAULTLIB:LIBCMT")

@@ -1,0 +1,37 @@
+Index: src/lib/platform/CMakeLists.txt
+--- src/lib/platform/CMakeLists.txt.orig
++++ src/lib/platform/CMakeLists.txt
+@@ -3,7 +3,7 @@
+ # SPDX-FileCopyrightText: (C) 2009 - 2012 Nick Bolton
+ # SPDX-License-Identifier: MIT
+ 
+-if(UNIX AND NOT APPLE)
++if(UNIX AND NOT APPLE AND NOT CMAKE_SYSTEM_NAME STREQUAL "OpenBSD")
+   pkg_check_modules(LIBEI REQUIRED QUIET "libei-1.0 >= ${REQUIRED_LIBEI_VERSION}")
+   message(STATUS "libei version: ${LIBEI_VERSION}")
+ 
+@@ -177,13 +177,20 @@ if(UNIX)
+     if(${LIBXKBCOMMON_VERSION} VERSION_GREATER_EQUAL "1.10")
+       target_compile_definitions(platform PRIVATE HAVE_XKB_KEYMAP_MOD_GET_MASK=1)
+     endif()
+-    target_compile_definitions(platform PUBLIC WINAPI_LIBEI WINAPI_LIBPORTAL HAVE_LIBPORTAL_INPUTCAPTURE)
+-    target_include_directories(platform PUBLIC ${LIBEI_INCLUDE_DIRS} ${LIBPORTAL_INCLUDE_DIRS})
++    if(CMAKE_SYSTEM_NAME STREQUAL "OpenBSD")
++      target_include_directories(platform PUBLIC /usr/X11R6/include)
++    elseif(CMAKE_SYSTEM_NAME STREQUAL "FreeBSD" OR CMAKE_SYSTEM_NAME STREQUAL "NetBSD")
++      target_include_directories(platform PUBLIC /usr/local/include)
++    endif()
+     target_link_libraries(
+       platform
+       Qt6::DBus
+       ${LIBXKBCOMMON_LINK_LIBRARIES}
+-      ${GLIB2_LINK_LIBRARIES} ${LIBM_LIBRARIES}
+-      ${LIBEI_LINK_LIBRARIES} ${LIBPORTAL_LINK_LIBRARIES})
++      ${GLIB2_LINK_LIBRARIES} ${LIBM_LIBRARIES})
++    if(LIBEI_FOUND AND LIBPORTAL_FOUND)
++      target_compile_definitions(platform PUBLIC WINAPI_LIBEI WINAPI_LIBPORTAL HAVE_LIBPORTAL_INPUTCAPTURE)
++      target_include_directories(platform PUBLIC ${LIBEI_INCLUDE_DIRS} ${LIBPORTAL_INCLUDE_DIRS})
++      target_link_libraries(platform ${LIBEI_LINK_LIBRARIES} ${LIBPORTAL_LINK_LIBRARIES})
++    endif()
+   endif()
+ endif()

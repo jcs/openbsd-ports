@@ -1,0 +1,17 @@
+Index: CMakeLists.txt
+--- CMakeLists.txt.orig
++++ CMakeLists.txt
+@@ -179,8 +179,11 @@ endif()
+ 
+ add_subdirectory(doc)
+ 
+-# build translations before source, I18N unit tests fail if they are missing
+-add_subdirectory(translations)
++option(BUILD_TRANSLATIONS "Build translations (requires Qt6LinguistTools)" ON)
++if(BUILD_TRANSLATIONS)
++  # build translations before source, I18N unit tests fail if they are missing
++  add_subdirectory(translations)
++endif()
+ 
+ add_subdirectory(src)
+ 

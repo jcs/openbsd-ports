@@ -1,0 +1,14 @@
+Index: src/lib/deskflow/unix/AppUtilUnix.cpp
+--- src/lib/deskflow/unix/AppUtilUnix.cpp.orig
++++ src/lib/deskflow/unix/AppUtilUnix.cpp
+@@ -45,7 +45,9 @@ std::vector<std::string> AppUtilUnix::getKeyboardLayou
+ 
+ #if WINAPI_XWINDOWS
+   // Check /usr/local first used on bsd and some systems
+-  m_evdev = "/usr/local/share/X11/xkb/rules/evdev.xml";
++  m_evdev = "/usr/X11R6/share/X11/xkb/rules/evdev.xml";
++  if (!std::filesystem::exists(m_evdev))
++    m_evdev = "/usr/local/share/X11/xkb/rules/evdev.xml";
+   if (!std::filesystem::exists(m_evdev))
+     m_evdev = "/usr/share/X11/xkb/rules/evdev.xml";
+   layoutLangCodes = X11LayoutsParser::getX11LanguageList(m_evdev);

@@ -1,0 +1,27 @@
+Index: src/apps/deskflow-core/CMakeLists.txt
+--- src/apps/deskflow-core/CMakeLists.txt.orig
++++ src/apps/deskflow-core/CMakeLists.txt
+@@ -38,11 +38,18 @@ target_link_libraries(
+   app
+   ${libs})
+ 
+-install(
+-  TARGETS ${target}
+-  RUNTIME_DEPENDENCY_SET coreDeps
+-  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+-)
++if(CMAKE_SYSTEM_NAME STREQUAL "OpenBSD")
++  install(
++    TARGETS ${target}
++    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
++  )
++else()
++  install(
++    TARGETS ${target}
++    RUNTIME_DEPENDENCY_SET coreDeps
++    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
++  )
++endif()
+ 
+ if(BUILD_OSX_BUNDLE)
+   set_target_properties(${target} PROPERTIES

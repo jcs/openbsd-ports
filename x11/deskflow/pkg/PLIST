@@ -1,0 +1,11 @@
+@bin bin/deskflow
+@bin bin/deskflow-core
+share/applications/org.deskflow.deskflow.desktop
+share/icons/hicolor/512x512/apps/org.deskflow.deskflow.png
+share/licenses/deskflow/
+share/licenses/deskflow/LICENSE
+share/licenses/deskflow/LICENSE_EXCEPTION
+share/pixmaps/
+share/pixmaps/org.deskflow.deskflow.png
+@tag gtk-update-icon-cache %D/share/icons/hicolor
+@tag update-desktop-database

@@ -1,0 +1,25 @@
+Index: src/lib/net/CMakeLists.txt
+--- src/lib/net/CMakeLists.txt.orig
++++ src/lib/net/CMakeLists.txt
+@@ -11,7 +11,20 @@ if(APPLE)
+ endif()
+ 
+ find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Network)
+-find_package(OpenSSL ${REQUIRED_OPENSSL_VERSION} REQUIRED COMPONENTS SSL Crypto)
++
++# LibreSSL reports version 2.0.0 but is API compatible with OpenSSL 1.1
++# Check for LibreSSL first
++find_package(OpenSSL REQUIRED COMPONENTS SSL Crypto)
++if(NOT OPENSSL_VERSION VERSION_GREATER_EQUAL ${REQUIRED_OPENSSL_VERSION})
++  # Check if this is LibreSSL (which reports as 2.0.0)
++  include(CheckSymbolExists)
++  set(CMAKE_REQUIRED_INCLUDES ${OPENSSL_INCLUDE_DIR})
++  check_symbol_exists(LIBRESSL_VERSION_NUMBER "openssl/opensslv.h" HAVE_LIBRESSL)
++  if(NOT HAVE_LIBRESSL)
++    message(FATAL_ERROR "OpenSSL version ${REQUIRED_OPENSSL_VERSION} or higher required, found ${OPENSSL_VERSION}")
++  endif()
++  message(STATUS "Using LibreSSL (reports as ${OPENSSL_VERSION})")
++endif()
+ 
+ add_library(net STATIC
+   Fingerprint.cpp
