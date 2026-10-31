@@ -1,6 +1,12 @@
 @bin bin/deskflow
 @bin bin/deskflow-core
 share/applications/org.deskflow.deskflow.desktop
+share/doc/deskflow/
+share/doc/deskflow/Configuration.md
+share/doc/deskflow/HelpMain.md
+share/doc/deskflow/Issues.md
+share/doc/deskflow/Readme.md
+share/doc/deskflow/Security.md
 share/icons/hicolor/512x512/apps/org.deskflow.deskflow.png
 share/licenses/deskflow/
 share/licenses/deskflow/LICENSE

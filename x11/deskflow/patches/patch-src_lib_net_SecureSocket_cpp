@@ -1,7 +1,7 @@
 Index: src/lib/net/SecureSocket.cpp
 --- src/lib/net/SecureSocket.cpp.orig
 +++ src/lib/net/SecureSocket.cpp
-@@ -346,10 +346,11 @@ void SecureSocket::initContext(bool server)
+@@ -351,10 +351,11 @@ void SecureSocket::initContext(bool server)
  
    // Prevent the usage of of all version prior to TLSv1.2 as they are known to
    // be vulnerable

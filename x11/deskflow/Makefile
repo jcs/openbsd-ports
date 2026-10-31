@@ -4,7 +4,7 @@ COMMENT =	keyboard and mouse sharing utility
 
 GH_ACCOUNT =	deskflow
 GH_PROJECT =	deskflow
-GH_TAGNAME =	v1.26.0
+GH_TAGNAME =	v1.27.0
 
 CATEGORIES =	x11
 
@@ -18,14 +18,12 @@ COMPILER =	base-clang ports-gcc
 
 BUILD_DEPENDS =	x11/qt6/qttools
 
-LIB_DEPENDS =	devel/glib2 \
-		devel/gettext,-runtime \
-		x11/xkbcommon
+LIB_DEPENDS =	x11/xkbcommon
 
 WANTLIB += ${COMPILER_LIBCXX} GL ICE Qt6Core Qt6DBus Qt6Gui
-WANTLIB += Qt6Network Qt6Widgets Qt6Xml SM X11 Xext Xi Xinerama
-WANTLIB += Xrandr Xtst c crypto glib-2.0 intl m pthread ssl
-WANTLIB += xkbcommon xkbfile
+WANTLIB += Qt6Network Qt6Widgets SM X11 Xext Xi Xinerama
+WANTLIB += Xrandr Xtst c crypto m pthread ssl
+WANTLIB += xkbcommon xkbfile xkbregistry
 
 CONFIGURE_ARGS =	-DBUILD_TESTS=OFF \
 			-DBUILD_INSTALLER=OFF \

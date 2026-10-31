@@ -1,9 +1,9 @@
 Index: CMakeLists.txt
 --- CMakeLists.txt.orig
 +++ CMakeLists.txt
-@@ -179,8 +179,11 @@ endif()
+@@ -237,8 +237,11 @@ endif()
  
- add_subdirectory(doc)
+ add_subdirectory(docs)
  
 -# build translations before source, I18N unit tests fail if they are missing
 -add_subdirectory(translations)

@@ -1,48 +1,17 @@
 Index: src/lib/net/SecureUtils.cpp
 --- src/lib/net/SecureUtils.cpp.orig
 +++ src/lib/net/SecureUtils.cpp
-@@ -11,6 +11,7 @@
- 
- #include <openssl/evp.h>
- #include <openssl/pem.h>
-+#include <openssl/rsa.h>
- #include <openssl/x509.h>
- #include <openssl/x509v3.h>
- 
-@@ -66,13 +67,33 @@ void generatePemSelfSignedCert(const QString &path, in
+@@ -67,7 +67,12 @@ void generatePemSelfSignedCert(const QString &path, in
  {
    auto expirationDays = 365;
  
--  auto *privateKey = EVP_PKEY_new();
+-  auto *privateKey = EVP_RSA_gen(keyLength);
 +  EVP_PKEY *privateKey = nullptr;
-+
-+#if defined(LIBRESSL_VERSION_NUMBER) || OPENSSL_VERSION_NUMBER < 0x30000000L
-+  // LibreSSL and OpenSSL < 3.0 compatibility
-+  RSA *rsa = RSA_new();
-+  BIGNUM *bn = BN_new();
-+  if (!bn || !BN_set_word(bn, RSA_F4) || !RSA_generate_key_ex(rsa, keyLength, bn, nullptr)) {
-+    if (bn) BN_free(bn);
-+    if (rsa) RSA_free(rsa);
-+    throw std::runtime_error("could not generate RSA key");
++  if (auto *keyCtx = EVP_PKEY_CTX_new_id(EVP_PKEY_RSA, nullptr)) {
++    if (EVP_PKEY_keygen_init(keyCtx) > 0 && EVP_PKEY_CTX_set_rsa_keygen_bits(keyCtx, keyLength) > 0)
++      EVP_PKEY_keygen(keyCtx, &privateKey);
++    EVP_PKEY_CTX_free(keyCtx);
 +  }
-+  BN_free(bn);
-+
-+  privateKey = EVP_PKEY_new();
-+  if (!privateKey || !EVP_PKEY_assign_RSA(privateKey, rsa)) {
-+    RSA_free(rsa);
-+    if (privateKey) EVP_PKEY_free(privateKey);
-+    throw std::runtime_error("could not assign RSA key to EVP_PKEY");
-+  }
-+#else
-+  privateKey = EVP_RSA_gen(keyLength);
-+#endif
-+
    if (!privateKey) {
-     throw std::runtime_error("could not allocate private key for certificate");
+     throw std::runtime_error("failed to generate a " + std::to_string(keyLength) + "bit key for certificate");
    }
-   auto privateKeyFree = finally([privateKey]() { EVP_PKEY_free(privateKey); });
--
--  privateKey = EVP_RSA_gen(keyLength);
- 
-   auto *cert = X509_new();
-   if (!cert) {

@@ -1,8 +1,8 @@
 Index: src/apps/deskflow-core/CMakeLists.txt
 --- src/apps/deskflow-core/CMakeLists.txt.orig
 +++ src/apps/deskflow-core/CMakeLists.txt
-@@ -38,11 +38,18 @@ target_link_libraries(
-   app
+@@ -39,11 +39,18 @@ target_link_libraries(
+   Qt6::Widgets
    ${libs})
  
 -install(
